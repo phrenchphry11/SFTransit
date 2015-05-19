@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8B0F2769174ADFC866135F6F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281442C23B9F2AAF26CB29FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		F4223C2F1B099C5500BAE59B /* Data in Resources */ = {isa = PBXBuildFile; fileRef = F4223C2E1B099C5500BAE59B /* Data */; };
+		F4223C331B0AE2FA00BAE59B /* BartClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4223C321B0AE2FA00BAE59B /* BartClient.swift */; };
+		F4223C351B0AE8F900BAE59B /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4223C341B0AE8F900BAE59B /* Station.swift */; };
+		F4223C371B0AEE2400BAE59B /* ScheduleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4223C361B0AEE2400BAE59B /* ScheduleInformation.swift */; };
 		F43D09FE1B095BFD00F73939 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D09FD1B095BFD00F73939 /* AppDelegate.swift */; };
 		F43D0A001B095BFD00F73939 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D09FF1B095BFD00F73939 /* ViewController.swift */; };
 		F43D0A031B095BFD00F73939 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43D0A011B095BFD00F73939 /* Main.storyboard */; };
@@ -31,7 +33,9 @@
 		281442C23B9F2AAF26CB29FE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D2601BD7A4E445AAAE0B0C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C15F2832B548A475270E3D40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		F4223C2E1B099C5500BAE59B /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
+		F4223C321B0AE2FA00BAE59B /* BartClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartClient.swift; sourceTree = "<group>"; };
+		F4223C341B0AE8F900BAE59B /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		F4223C361B0AEE2400BAE59B /* ScheduleInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleInformation.swift; sourceTree = "<group>"; };
 		F43D09F81B095BFD00F73939 /* SFTransit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFTransit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43D09FC1B095BFD00F73939 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F43D09FD1B095BFD00F73939 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,13 +107,15 @@
 		F43D09FA1B095BFD00F73939 /* SFTransit */ = {
 			isa = PBXGroup;
 			children = (
-				F4223C2E1B099C5500BAE59B /* Data */,
 				F43D09FD1B095BFD00F73939 /* AppDelegate.swift */,
 				F43D09FF1B095BFD00F73939 /* ViewController.swift */,
 				F43D0A011B095BFD00F73939 /* Main.storyboard */,
 				F43D0A041B095BFD00F73939 /* Images.xcassets */,
 				F43D0A061B095BFD00F73939 /* LaunchScreen.xib */,
 				F43D09FB1B095BFD00F73939 /* Supporting Files */,
+				F4223C321B0AE2FA00BAE59B /* BartClient.swift */,
+				F4223C361B0AEE2400BAE59B /* ScheduleInformation.swift */,
+				F4223C341B0AE8F900BAE59B /* Station.swift */,
 			);
 			path = SFTransit;
 			sourceTree = "<group>";
@@ -224,7 +230,6 @@
 			files = (
 				F43D0A031B095BFD00F73939 /* Main.storyboard in Resources */,
 				F43D0A081B095BFD00F73939 /* LaunchScreen.xib in Resources */,
-				F4223C2F1B099C5500BAE59B /* Data in Resources */,
 				F43D0A051B095BFD00F73939 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4223C331B0AE2FA00BAE59B /* BartClient.swift in Sources */,
+				F4223C371B0AEE2400BAE59B /* ScheduleInformation.swift in Sources */,
 				F43D0A001B095BFD00F73939 /* ViewController.swift in Sources */,
+				F4223C351B0AE8F900BAE59B /* Station.swift in Sources */,
 				F43D09FE1B095BFD00F73939 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

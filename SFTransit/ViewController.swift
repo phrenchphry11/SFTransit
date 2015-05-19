@@ -11,15 +11,18 @@ import CoreLocation
 import UIKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
-    var allStations: [NSDictionary] = []
+    var allStations: [Station] = []
     var lastLocation = CLLocation()
     var locationAuthorizationStatus: CLAuthorizationStatus!
     var locationManager: CLLocationManager!
     var seenError: Bool = false
     var locationFixAchieved: Bool = false
     var locationStatus: NSString = "Not Started"
-    var nearestStation: NSDictionary?
+    var nearestStation: Station?
     var closestIndex: Int = 0
+    var starterStation: Station?
+    var endStation: Station?
+    var fare: String = "0.00"
     
     @IBOutlet weak var arrivalLocationPickerView: UIPickerView!
     
@@ -27,54 +30,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     
     @IBOutlet weak var nearestStationLabel: UILabel!
     
+    @IBOutlet weak var fareLabel: UILabel!
+    
+    @IBOutlet weak var departureStationLabel: UILabel!
+    
+    @IBOutlet weak var departureTime: UILabel!
+    
+    @IBOutlet weak var arrivalStationLabel: UILabel!
+    
+    @IBOutlet weak var arrivalTime: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.populateStations()
+        self.allStations = BartClient.sharedInstance.getStations()
         self.initLocationManager()
         self.departerLocationPickerView.delegate = self
         self.departerLocationPickerView.dataSource = self
         self.departerLocationPickerView.selectRow(closestIndex, inComponent: 0, animated: true)
+        var starterStationIndex = self.departerLocationPickerView.selectedRowInComponent(0)
+        var endStationIndex = self.departerLocationPickerView.selectedRowInComponent(1)
+        starterStation = self.allStations[starterStationIndex]
+        endStation = self.allStations[endStationIndex]
+        var scheduleInfo = BartClient.sharedInstance.getScheduleInfo(starterStation?.abbreviation, dest: endStation?.abbreviation)
+
+        fareLabel.text = "$\(fare)"
+        departureStationLabel.text = starterStation?.name
+        arrivalStationLabel.text = endStation?.name
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func populateStations() {
-//        var fourthStreet = ["name": "Fourth and King", "location": CLLocation(latitude: 37.776905, longitude: -122.395012)]
-//        allStations.append(fourthStreet)
-//        var twentySecondStreet = ["name": "22nd Street Caltrain", "location": CLLocation(latitude: 37.757674, longitude: -122.392636)]
-//        allStations.append(twentySecondStreet)
-//        var paloAlto = ["name": "Palo Alto", "location": CLLocation(latitude: 37.44307, longitude: -122.392636)]
-//        allStations.append(paloAlto)
-        
-        var stopName: String!
-        var stopLat: Double?
-        var stopLong: Double?
-        var stationInfo: Dictionary<String, AnyObject> = [:]
-        
-        if let url = NSURL(fileURLWithPath: "/Users/hfrench/codepath/SFTransit/SFTransit/Data/stops.txt") {
-            var error: NSErrorPointer = nil
-            if let csv = CSV(contentsOfURL: url, error: error) {
-                // Rows
-                let rows = csv.rows
-                for row in rows {
-                    if row["platform_code"] == "NB" {
-                        continue
-                    }
-                    stopName = row["stop_name"]!
-                    stopLat = NSString(string: row["stop_lat"]!).doubleValue
-                    stopLong = NSString(string: row["stop_lon"]!).doubleValue
-                    stationInfo["name"] = stopName.stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-
-                    stationInfo["location"] = CLLocation(latitude: stopLat!, longitude: stopLong!)
-                    allStations.append(stationInfo)
-                }
-            }
-            
-            println(allStations)
-        }
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -86,14 +72,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return self.allStations[row]["name"] as! String
+        return self.allStations[row].name
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        println("selected row")
-        println(self.allStations[self.departerLocationPickerView.selectedRowInComponent(0)]["name"])
-        println(self.allStations[self.departerLocationPickerView.selectedRowInComponent(1)]["name"])
-        println("---------------")
+        self.starterStation = self.allStations[self.departerLocationPickerView.selectedRowInComponent(0)]
+        self.endStation = self.allStations[self.departerLocationPickerView.selectedRowInComponent(1)]
+        var scheduleInfo = BartClient.sharedInstance.getScheduleInfo(starterStation?.abbreviation, dest: endStation?.abbreviation)
+            
+        println("schedule")
+        println(scheduleInfo)
+        for schedule in scheduleInfo {
+            fare = schedule.fare!
+            println("hello")
+            println(schedule.fare)
+            println(schedule.origTimeMin)
+            println(schedule.legDestTimeMin)
+            println(schedule.legMaxTrip)
+            println(schedule.legTransfercode)
+            println(schedule.origin)
+        }
+        
+        fareLabel.text = "$\(fare)"
+        departureStationLabel.text = starterStation?.name
+        arrivalStationLabel.text = endStation?.name
+        departureTime.text = scheduleInfo.first?.origTimeMin
+        arrivalTime.text = scheduleInfo.last?.legDestTimeMin
+
     }
     
     func initLocationManager() {
@@ -121,19 +126,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
-        (self.nearestStation, closestIndex) = getNearestCaltrainStation(manager.location)
-        var stationName = self.nearestStation!["name"] as? String
+        (self.nearestStation, closestIndex) = getNearestBartStation(manager.location)
+        var stationName = self.nearestStation!.name
         self.nearestStationLabel.text = stationName
     }
     
-    func getNearestCaltrainStation(curLocation: CLLocation) -> (NSDictionary?, Int) {
-        var closestLocation: NSDictionary?
+    func getNearestBartStation(curLocation: CLLocation) -> (Station?, Int) {
+        var closestLocation: Station?
         var closestLocationDistance: CLLocationDistance = -1
         var index = 0
         var closestIndex = 0
         for location in self.allStations {
             if closestLocation != nil {
-                var closestLocationObj = closestLocation!["location"] as! CLLocation
+                var closestLocationObj = closestLocation!.location
                 var currentDistance = curLocation.distanceFromLocation(closestLocationObj)
                 if currentDistance < closestLocationDistance {
                     closestLocation = location
