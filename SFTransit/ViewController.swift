@@ -23,6 +23,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     var starterStation: Station?
     var endStation: Station?
     var fare: String = "0.00"
+    var transfer: String = ""
+    
+    @IBOutlet weak var transferLabel: UILabel!
     
     @IBOutlet weak var arrivalLocationPickerView: UIPickerView!
     
@@ -56,6 +59,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         fareLabel.text = "$\(fare)"
         departureStationLabel.text = starterStation?.name
         arrivalStationLabel.text = endStation?.name
+        transferLabel.text = transfer
         
     }
 
@@ -82,15 +86,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
             
         println("schedule")
         println(scheduleInfo)
-        for schedule in scheduleInfo {
-            fare = schedule.fare!
-            println("hello")
-            println(schedule.fare)
-            println(schedule.origTimeMin)
-            println(schedule.legDestTimeMin)
-            println(schedule.legMaxTrip)
-            println(schedule.legTransfercode)
-            println(schedule.origin)
+//        for schedule in scheduleInfo {
+//            fare = schedule.fare!
+//            println("hello")
+//            println(schedule.fare)
+//            println(schedule.origTimeMin)
+//            println(schedule.legDestTimeMin)
+//            println(schedule.legMaxTrip)
+//            println(schedule.legTransfercode)
+//            println(schedule.origin)
+//        }
+        
+        if scheduleInfo.count > 1 {
+            transfer = "Transfer at:"
+            for i in 0..<scheduleInfo.count-1 {
+                transfer += scheduleInfo[i].origin!
+            }
+        } else {
+            transfer = ""
         }
         
         fareLabel.text = "$\(fare)"
@@ -98,7 +111,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         arrivalStationLabel.text = endStation?.name
         departureTime.text = scheduleInfo.first?.origTimeMin
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
-
+        transferLabel.text = transfer
     }
     
     func initLocationManager() {
