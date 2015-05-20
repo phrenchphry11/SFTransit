@@ -27,6 +27,13 @@ class Tweet: NSObject {
         }
     }
 
+    init(json: JSONValue) {
+        id = json["id"].integer
+        user = TweetUser(json: json["user"])
+        text = json["text"].string
+        createdAtString = json["created_at"].string
+    }
+
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {
         var tweets = [Tweet]()
         for dictionary in array {
@@ -34,4 +41,13 @@ class Tweet: NSObject {
         }
         return tweets
     }
+
+    class func tweetsWithArray(array: [JSONValue]) -> [Tweet] {
+        var tweets = [Tweet]()
+        for json in array {
+            tweets.append(Tweet(json: json))
+        }
+        return tweets
+    }
+
 }

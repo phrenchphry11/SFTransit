@@ -39,6 +39,7 @@
 		530F90921B0C364B00A3D2E2 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90911B0C364B00A3D2E2 /* TweetCell.swift */; };
 		530F90941B0C36A800A3D2E2 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90931B0C36A800A3D2E2 /* Tweet.swift */; };
 		530F90961B0C370100A3D2E2 /* TweetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90951B0C370100A3D2E2 /* TweetUser.swift */; };
+		530F90981B0C599B00A3D2E2 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90971B0C599B00A3D2E2 /* UIImageView+Utils.swift */; };
 		8B0F2769174ADFC866135F6F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281442C23B9F2AAF26CB29FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F4223C331B0AE2FA00BAE59B /* BartClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4223C321B0AE2FA00BAE59B /* BartClient.swift */; };
 		F4223C351B0AE8F900BAE59B /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4223C341B0AE8F900BAE59B /* Station.swift */; };
@@ -98,6 +99,7 @@
 		530F90911B0C364B00A3D2E2 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		530F90931B0C36A800A3D2E2 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		530F90951B0C370100A3D2E2 /* TweetUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetUser.swift; sourceTree = "<group>"; };
+		530F90971B0C599B00A3D2E2 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		7D2601BD7A4E445AAAE0B0C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C15F2832B548A475270E3D40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F4223C321B0AE2FA00BAE59B /* BartClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartClient.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				530F90911B0C364B00A3D2E2 /* TweetCell.swift */,
 				530F90931B0C36A800A3D2E2 /* Tweet.swift */,
 				530F90951B0C370100A3D2E2 /* TweetUser.swift */,
+				530F90971B0C599B00A3D2E2 /* UIImageView+Utils.swift */,
 			);
 			path = SFTransit;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				F4223C351B0AE8F900BAE59B /* Station.swift in Sources */,
 				530F907A1B0C336200A3D2E2 /* SwifterCredential.swift in Sources */,
 				530F90811B0C336200A3D2E2 /* SwifterOAuthClient.swift in Sources */,
+				530F90981B0C599B00A3D2E2 /* UIImageView+Utils.swift in Sources */,
 				F43D09FE1B095BFD00F73939 /* AppDelegate.swift in Sources */,
 				530F908D1B0C338A00A3D2E2 /* TwitterViewController.swift in Sources */,
 				530F90831B0C336200A3D2E2 /* SwifterSavedSearches.swift in Sources */,

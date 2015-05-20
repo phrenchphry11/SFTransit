@@ -13,14 +13,12 @@ class TweetUser: NSObject {
     var screenName: String?
     var profileImageUrl: String?
     var tagline: String?
-    var dictionary: NSDictionary
     var bannerImageUrl: String?
     var friendsCount: Int?
     var followersCount: Int?
     var tweetsCount: Int?
 
     init(dictionary: NSDictionary) {
-        self.dictionary = dictionary
         name = dictionary["name"] as? String
         screenName = dictionary["screen_name"] as? String
         profileImageUrl = dictionary["profile_image_url"] as? String
@@ -29,5 +27,16 @@ class TweetUser: NSObject {
         friendsCount = dictionary["friends_count"] as? Int
         followersCount = dictionary["followers_count"] as? Int
         tweetsCount = dictionary["statuses_count"] as? Int
+    }
+
+    init(json: JSONValue) {
+        name = json["name"].string
+        screenName = json["screen_name"].string
+        profileImageUrl = json["profile_image_url"].string
+        tagline = json["description"].string
+        bannerImageUrl = json["profile_banner_url"].string
+        friendsCount = json["friends_count"].integer
+        followersCount = json["followers_count"].integer
+        tweetsCount = json["statuses_count"].integer
     }
 }
