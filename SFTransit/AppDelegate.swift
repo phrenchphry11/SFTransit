@@ -22,10 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var scheduleViewController = storyboard.instantiateViewControllerWithIdentifier("ScheduleViewController") as? ViewController
         var scheduleNavController = UINavigationController(rootViewController: scheduleViewController!)
         scheduleNavController.tabBarItem.title = "Schedule"
+        scheduleNavController.tabBarItem.image = UIImage(named: "Route")
 
         var twitterViewController = storyboard.instantiateViewControllerWithIdentifier("TwitterViewController") as? TwitterViewController
         var twitterNavController = UINavigationController(rootViewController: twitterViewController!)
-        twitterNavController.tabBarItem.title = "Twitter"
+        twitterNavController.tabBarItem.title = "#bart"
+        twitterNavController.tabBarItem.image = UIImage(named: "Bird")
 
         var tabBarController = UITabBarController()
         tabBarController.viewControllers = [scheduleNavController, twitterNavController]
