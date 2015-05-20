@@ -93,9 +93,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
             transfer = ""
         }
         
-        fareLabel.text = "$\(fare)"
-        departureStationLabel.text = starterStation?.name
-        arrivalStationLabel.text = endStation?.name
+        if let fare = scheduleInfo.first?.fare {
+            fareLabel.text = "$\(scheduleInfo.first!.fare!)"
+        } else {
+            fareLabel.text = "$0.00"
+        }
+        
+        if let starterStation = starterStation, endStation = endStation {
+            departureStationLabel.text = starterStation.name
+            arrivalStationLabel.text = endStation.name
+        }
+
         departureTime.text = scheduleInfo.first?.origTimeMin
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer
