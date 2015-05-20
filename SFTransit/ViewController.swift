@@ -83,32 +83,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         self.starterStation = self.allStations[self.departerLocationPickerView.selectedRowInComponent(0)]
         self.endStation = self.allStations[self.departerLocationPickerView.selectedRowInComponent(1)]
         var scheduleInfo = BartClient.sharedInstance.getScheduleInfo(starterStation?.abbreviation, dest: endStation?.abbreviation)
-            
-        println("schedule")
-        println(scheduleInfo)
-//        for schedule in scheduleInfo {
-//            fare = schedule.fare!
-//            println("hello")
-//            println(schedule.fare)
-//            println(schedule.origTimeMin)
-//            println(schedule.legDestTimeMin)
-//            println(schedule.legMaxTrip)
-//            println(schedule.legTransfercode)
-//            println(schedule.origin)
-//        }
         
         if scheduleInfo.count > 1 {
-            transfer = "Transfer at:"
+            transfer = "Transfer at: "
             for i in 0..<scheduleInfo.count-1 {
-                transfer += scheduleInfo[i].origin!
+                transfer += self.getStationDisplayNameFromAbbreviation(scheduleInfo[i].origin!)
             }
         } else {
             transfer = ""
         }
         
-        fareLabel.text = "$\(fare)"
-        departureStationLabel.text = starterStation?.name
-        arrivalStationLabel.text = endStation?.name
+        if let fare = scheduleInfo.first?.fare {
+            fareLabel.text = "$\(scheduleInfo.first!.fare!)"
+        } else {
+            fareLabel.text = "$0.00"
+        }
+        
+        if let starterStation = starterStation, endStation = endStation {
+            departureStationLabel.text = starterStation.name
+            arrivalStationLabel.text = endStation.name
+        }
+
         departureTime.text = scheduleInfo.first?.origTimeMin
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer
@@ -165,6 +160,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         }
         
         return (closestLocation!, closestIndex)
+    }
+    
+    func getStationDisplayNameFromAbbreviation(abbreviation: NSString!) -> String {
+        for station in self.allStations {
+            if station.abbreviation == abbreviation {
+                return station.name!
+            }
+        }
+        
+        return "No station found"
     }
 
 
