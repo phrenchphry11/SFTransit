@@ -7,213 +7,213 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2CB029F72A2534053479C386 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB8BE86D441A8B815DA4DD3 /* Foundation.framework */; };
-		32963CA618524F362B9EBCF7 /* Pods-SwiftCSV-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE48BA28E46ADA8337BC34C9 /* Pods-SwiftCSV-dummy.m */; };
-		42C065971B322942DD9024EF /* Pods-SwiftCSV-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A51FAF94B5EB20AAFD242AEE /* Pods-SwiftCSV-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		73FDD0F3911D51ADFF01F96D /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CBC5AE4167B8FDFCF962E0AD /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		85F6E966C80492DBE4C30761 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB8BE86D441A8B815DA4DD3 /* Foundation.framework */; };
-		EEE6A4DFE1743223334FE029 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D3BEABDD01DA317116606 /* CSV.swift */; };
-		EFCABE85EE9A363763215F9D /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F969DF9C2984291D977739B3 /* Pods-dummy.m */; };
+		308D2E7AD6BF1D717C9D2F64 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AEB1A0757A2B546ACBA4CE /* Pods-dummy.m */; };
+		65303C6EED1C374B1003A378 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B695B2269824287CFFA8308 /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9029B8F45D5FA82D09A3BB85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1ABD5B9006962810AB3443 /* Foundation.framework */; };
+		D554FB9E78E1240DD3844BE4 /* Pods-SwiftCSV-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D243B3338BB03E32C17179 /* Pods-SwiftCSV-dummy.m */; };
+		D757AF47B1E094652357EE17 /* Pods-SwiftCSV-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 13710F9A79A6A7331D2762A0 /* Pods-SwiftCSV-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8EA4F86CD8840F9D5A43C17 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E187BEE001BCCA1BD9EA8C /* CSV.swift */; };
+		F8F93BE60D78E012FCFC646B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1ABD5B9006962810AB3443 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		25D7DE278D29C6E57C5D44A6 /* PBXContainerItemProxy */ = {
+		8003DF775EE397AED61AC78D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 45F16FC9D6DC6DAE7961B3D5 /* Project object */;
+			containerPortal = EFF820F00081AC27543AB7A8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DC816592E1593ECEB8D93D5D;
+			remoteGlobalIDString = 8B52C1C7D972F56F5AB2C7F4;
 			remoteInfo = "Pods-SwiftCSV";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0052F1C1C71DEBECD50F6509 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		0251F11A1D8D11B09FFAAA58 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2CB8BE86D441A8B815DA4DD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		5516D859791D611CD024683B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A6D3BEABDD01DA317116606 /* CSV.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = SwiftCSV/CSV.swift; sourceTree = "<group>"; };
-		63FE528AD58C0BAA578D2BB1 /* Pods-SwiftCSV.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftCSV.modulemap"; sourceTree = "<group>"; };
-		65129D748453907C4A44C83F /* Pods-SwiftCSV-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftCSV-prefix.pch"; sourceTree = "<group>"; };
-		663FDCB5D151C4137360EC07 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		8F62A473312EAC820F861B56 /* Pods-SwiftCSV.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftCSV.xcconfig"; sourceTree = "<group>"; };
-		95B1772A91FA8BD0115C11B0 /* SwiftCSV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCSV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A049B8E220F33018F5FFE3E6 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		A51FAF94B5EB20AAFD242AEE /* Pods-SwiftCSV-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftCSV-umbrella.h"; sourceTree = "<group>"; };
-		A569137A0BB07FDB773F7507 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE48BA28E46ADA8337BC34C9 /* Pods-SwiftCSV-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftCSV-dummy.m"; sourceTree = "<group>"; };
-		BC11FDDCB7D2F8FB8CFE4A78 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C13EF4C2DD3B9CE2667C0727 /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
-		CBC5AE4167B8FDFCF962E0AD /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		CE314A68ABC8B1A80A55B00F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		DE84DD4D1DD5E9B1841CE51F /* Pods-SwiftCSV-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftCSV-Private.xcconfig"; sourceTree = "<group>"; };
-		EA619C1ACAC7BC5257CF8323 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		ED2CF20578BD68AB6EC3C4CE /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		F33032F3CCAA97590C19B865 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		F969DF9C2984291D977739B3 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		044C811CD2E33BB67A8A5E2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11CAB304B449F812B4A49324 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13710F9A79A6A7331D2762A0 /* Pods-SwiftCSV-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftCSV-umbrella.h"; sourceTree = "<group>"; };
+		17AEB1A0757A2B546ACBA4CE /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		18D62F1B3786B8D1D3E28206 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1B695B2269824287CFFA8308 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
+		27D19F7BBDCC4CE02B461BBC /* Pods-SwiftCSV-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftCSV-Private.xcconfig"; sourceTree = "<group>"; };
+		407620B4DEA72A0A1B49B99F /* Pods-SwiftCSV.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftCSV.xcconfig"; sourceTree = "<group>"; };
+		468362DAE4B2D003C86A53C5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		49DCBFF0CBD67FBCF63948D7 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		55E187BEE001BCCA1BD9EA8C /* CSV.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = SwiftCSV/CSV.swift; sourceTree = "<group>"; };
+		62E768EAF0D9D21968FEE458 /* Pods-SwiftCSV.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftCSV.modulemap"; sourceTree = "<group>"; };
+		773994794DB5323761683DBC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		81D96ADC43D75D6F1741A25E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		8E9B0C6C7EADC7F663A675F4 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		AB1ABD5B9006962810AB3443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		BBF4852A850316F6943257F6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0181DCB2621D45BD002CCBE /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
+		C0201E68A6D06319E2C9CEB6 /* SwiftCSV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCSV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA5C2D4339C94058BEA32808 /* Pods-SwiftCSV-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftCSV-prefix.pch"; sourceTree = "<group>"; };
+		E07F5119096991739606A9F6 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		E1D243B3338BB03E32C17179 /* Pods-SwiftCSV-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftCSV-dummy.m"; sourceTree = "<group>"; };
+		E3816695B97A6E8CBE64D87D /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DE5CEDEA0C62CE935344E074 /* Frameworks */ = {
+		0DC36B0D2341B5B2EB27E5F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85F6E966C80492DBE4C30761 /* Foundation.framework in Frameworks */,
+				F8F93BE60D78E012FCFC646B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC5ED3A383A303E2E173D130 /* Frameworks */ = {
+		BA40B38A25304A0E4927F1F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CB029F72A2534053479C386 /* Foundation.framework in Frameworks */,
+				9029B8F45D5FA82D09A3BB85 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D09BE16BCAEABA917F53A18 /* Pods */ = {
+		513BD714DD9F205456D40FD9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0251F11A1D8D11B09FFAAA58 /* Info.plist */,
-				C13EF4C2DD3B9CE2667C0727 /* Pods.modulemap */,
-				BC11FDDCB7D2F8FB8CFE4A78 /* Pods-acknowledgements.markdown */,
-				ED2CF20578BD68AB6EC3C4CE /* Pods-acknowledgements.plist */,
-				F969DF9C2984291D977739B3 /* Pods-dummy.m */,
-				F33032F3CCAA97590C19B865 /* Pods-environment.h */,
-				663FDCB5D151C4137360EC07 /* Pods-frameworks.sh */,
-				A049B8E220F33018F5FFE3E6 /* Pods-resources.sh */,
-				CBC5AE4167B8FDFCF962E0AD /* Pods-umbrella.h */,
-				EA619C1ACAC7BC5257CF8323 /* Pods.debug.xcconfig */,
-				CE314A68ABC8B1A80A55B00F /* Pods.release.xcconfig */,
+				59F76189EA92909280265F42 /* SwiftCSV */,
 			);
 			name = Pods;
-			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		5901CA5E9F457A84DE8F1AC8 /* Products */ = {
+		59F76189EA92909280265F42 /* SwiftCSV */ = {
 			isa = PBXGroup;
 			children = (
-				A569137A0BB07FDB773F7507 /* Pods.framework */,
-				95B1772A91FA8BD0115C11B0 /* SwiftCSV.framework */,
+				55E187BEE001BCCA1BD9EA8C /* CSV.swift */,
+				CA61E341C67672CE047C9138 /* Support Files */,
+			);
+			path = SwiftCSV;
+			sourceTree = "<group>";
+		};
+		6A51E59331C90C0109AE4CD7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				044C811CD2E33BB67A8A5E2E /* Pods.framework */,
+				C0201E68A6D06319E2C9CEB6 /* SwiftCSV.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5FBB716191855F9D11EAEC8E /* Frameworks */ = {
+		AD5B124B1553733A4D5E05E2 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D0223994AC06A0AB898FA150 /* iOS */,
+				AB1ABD5B9006962810AB3443 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		B7972EED1A3F968526D90BCB = {
+			isa = PBXGroup;
+			children = (
+				49DCBFF0CBD67FBCF63948D7 /* Podfile */,
+				BD48AF2A81F0A70823F69AF1 /* Frameworks */,
+				513BD714DD9F205456D40FD9 /* Pods */,
+				6A51E59331C90C0109AE4CD7 /* Products */,
+				E78600F752FCEF432FBAC875 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		BD48AF2A81F0A70823F69AF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD5B124B1553733A4D5E05E2 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		77CD74E1E6A803EA19C2B616 /* Support Files */ = {
+		CA61E341C67672CE047C9138 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5516D859791D611CD024683B /* Info.plist */,
-				63FE528AD58C0BAA578D2BB1 /* Pods-SwiftCSV.modulemap */,
-				8F62A473312EAC820F861B56 /* Pods-SwiftCSV.xcconfig */,
-				DE84DD4D1DD5E9B1841CE51F /* Pods-SwiftCSV-Private.xcconfig */,
-				AE48BA28E46ADA8337BC34C9 /* Pods-SwiftCSV-dummy.m */,
-				65129D748453907C4A44C83F /* Pods-SwiftCSV-prefix.pch */,
-				A51FAF94B5EB20AAFD242AEE /* Pods-SwiftCSV-umbrella.h */,
+				11CAB304B449F812B4A49324 /* Info.plist */,
+				62E768EAF0D9D21968FEE458 /* Pods-SwiftCSV.modulemap */,
+				407620B4DEA72A0A1B49B99F /* Pods-SwiftCSV.xcconfig */,
+				27D19F7BBDCC4CE02B461BBC /* Pods-SwiftCSV-Private.xcconfig */,
+				E1D243B3338BB03E32C17179 /* Pods-SwiftCSV-dummy.m */,
+				CA5C2D4339C94058BEA32808 /* Pods-SwiftCSV-prefix.pch */,
+				13710F9A79A6A7331D2762A0 /* Pods-SwiftCSV-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-SwiftCSV";
 			sourceTree = "<group>";
 		};
-		9F6437AEB21D3E257DE637DB /* SwiftCSV */ = {
+		DB52839F5F2C9AB7630C7690 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5A6D3BEABDD01DA317116606 /* CSV.swift */,
-				77CD74E1E6A803EA19C2B616 /* Support Files */,
-			);
-			path = SwiftCSV;
-			sourceTree = "<group>";
-		};
-		B92DE5D0C03ADFF48B79EE16 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3D09BE16BCAEABA917F53A18 /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		BCC60EC18425F8688B707B5B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9F6437AEB21D3E257DE637DB /* SwiftCSV */,
+				BBF4852A850316F6943257F6 /* Info.plist */,
+				C0181DCB2621D45BD002CCBE /* Pods.modulemap */,
+				18D62F1B3786B8D1D3E28206 /* Pods-acknowledgements.markdown */,
+				81D96ADC43D75D6F1741A25E /* Pods-acknowledgements.plist */,
+				17AEB1A0757A2B546ACBA4CE /* Pods-dummy.m */,
+				8E9B0C6C7EADC7F663A675F4 /* Pods-environment.h */,
+				E07F5119096991739606A9F6 /* Pods-frameworks.sh */,
+				E3816695B97A6E8CBE64D87D /* Pods-resources.sh */,
+				1B695B2269824287CFFA8308 /* Pods-umbrella.h */,
+				773994794DB5323761683DBC /* Pods.debug.xcconfig */,
+				468362DAE4B2D003C86A53C5 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		D0223994AC06A0AB898FA150 /* iOS */ = {
+		E78600F752FCEF432FBAC875 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2CB8BE86D441A8B815DA4DD3 /* Foundation.framework */,
+				DB52839F5F2C9AB7630C7690 /* Pods */,
 			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		F0853F94E5E6CAD09F53B1E5 = {
-			isa = PBXGroup;
-			children = (
-				0052F1C1C71DEBECD50F6509 /* Podfile */,
-				5FBB716191855F9D11EAEC8E /* Frameworks */,
-				BCC60EC18425F8688B707B5B /* Pods */,
-				5901CA5E9F457A84DE8F1AC8 /* Products */,
-				B92DE5D0C03ADFF48B79EE16 /* Targets Support Files */,
-			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A8EB9DFA0F2FC988B665B705 /* Headers */ = {
+		0B34BB12711BDF8128DC9122 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42C065971B322942DD9024EF /* Pods-SwiftCSV-umbrella.h in Headers */,
+				D757AF47B1E094652357EE17 /* Pods-SwiftCSV-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B9D5AD473A62EAC376EC3D64 /* Headers */ = {
+		B8A4720252024ED0A70AD41B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73FDD0F3911D51ADFF01F96D /* Pods-umbrella.h in Headers */,
+				65303C6EED1C374B1003A378 /* Pods-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2244E9EBC596DAAE1BC73C36 /* Pods */ = {
+		65CE2A47E5F015DD2A09671C /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D277D150D12BE7E2383CA03 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = 356D797F849F2BF332C53172 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				D560DD88F5DCE8E397ABEECE /* Sources */,
-				EC5ED3A383A303E2E173D130 /* Frameworks */,
-				B9D5AD473A62EAC376EC3D64 /* Headers */,
+				D6170738AF73955ABC76565E /* Sources */,
+				0DC36B0D2341B5B2EB27E5F3 /* Frameworks */,
+				B8A4720252024ED0A70AD41B /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F54022A1A0E5F62379182C4F /* PBXTargetDependency */,
+				8CE1D5D7C90AF0EE968F9929 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = A569137A0BB07FDB773F7507 /* Pods.framework */;
+			productReference = 044C811CD2E33BB67A8A5E2E /* Pods.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DC816592E1593ECEB8D93D5D /* Pods-SwiftCSV */ = {
+		8B52C1C7D972F56F5AB2C7F4 /* Pods-SwiftCSV */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30B5908772B48B72CA38005B /* Build configuration list for PBXNativeTarget "Pods-SwiftCSV" */;
+			buildConfigurationList = EF33AF4574D48364F0F7D02B /* Build configuration list for PBXNativeTarget "Pods-SwiftCSV" */;
 			buildPhases = (
-				497DFC8BF5971999F3677CA4 /* Sources */,
-				DE5CEDEA0C62CE935344E074 /* Frameworks */,
-				A8EB9DFA0F2FC988B665B705 /* Headers */,
+				50828387E5DBDB7B4AF63B2B /* Sources */,
+				BA40B38A25304A0E4927F1F1 /* Frameworks */,
+				0B34BB12711BDF8128DC9122 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -221,129 +221,68 @@
 			);
 			name = "Pods-SwiftCSV";
 			productName = "Pods-SwiftCSV";
-			productReference = 95B1772A91FA8BD0115C11B0 /* SwiftCSV.framework */;
+			productReference = C0201E68A6D06319E2C9CEB6 /* SwiftCSV.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		45F16FC9D6DC6DAE7961B3D5 /* Project object */ = {
+		EFF820F00081AC27543AB7A8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = 2BBCC983417FFCBDB957D5B9 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = B1B2578B29B254A1760DBE18 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = F0853F94E5E6CAD09F53B1E5;
-			productRefGroup = 5901CA5E9F457A84DE8F1AC8 /* Products */;
+			mainGroup = B7972EED1A3F968526D90BCB;
+			productRefGroup = 6A51E59331C90C0109AE4CD7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2244E9EBC596DAAE1BC73C36 /* Pods */,
-				DC816592E1593ECEB8D93D5D /* Pods-SwiftCSV */,
+				65CE2A47E5F015DD2A09671C /* Pods */,
+				8B52C1C7D972F56F5AB2C7F4 /* Pods-SwiftCSV */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		497DFC8BF5971999F3677CA4 /* Sources */ = {
+		50828387E5DBDB7B4AF63B2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE6A4DFE1743223334FE029 /* CSV.swift in Sources */,
-				32963CA618524F362B9EBCF7 /* Pods-SwiftCSV-dummy.m in Sources */,
+				E8EA4F86CD8840F9D5A43C17 /* CSV.swift in Sources */,
+				D554FB9E78E1240DD3844BE4 /* Pods-SwiftCSV-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D560DD88F5DCE8E397ABEECE /* Sources */ = {
+		D6170738AF73955ABC76565E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFCABE85EE9A363763215F9D /* Pods-dummy.m in Sources */,
+				308D2E7AD6BF1D717C9D2F64 /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F54022A1A0E5F62379182C4F /* PBXTargetDependency */ = {
+		8CE1D5D7C90AF0EE968F9929 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-SwiftCSV";
-			target = DC816592E1593ECEB8D93D5D /* Pods-SwiftCSV */;
-			targetProxy = 25D7DE278D29C6E57C5D44A6 /* PBXContainerItemProxy */;
+			target = 8B52C1C7D972F56F5AB2C7F4 /* Pods-SwiftCSV */;
+			targetProxy = 8003DF775EE397AED61AC78D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		14EAB4D46BE6D4D3B7126B7D /* Release */ = {
+		3CE0BA7931D60FA7BAF47C32 /* Release */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6292B9B8135C096EBD2DFFA3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE84DD4D1DD5E9B1841CE51F /* Pods-SwiftCSV-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftCSV/Pods-SwiftCSV-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftCSV/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftCSV/Pods-SwiftCSV.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftCSV;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		A214A9573FAD51EE28442077 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE314A68ABC8B1A80A55B00F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 468362DAE4B2D003C86A53C5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -370,65 +309,7 @@
 			};
 			name = Release;
 		};
-		AAA04C862FB61B96B17CF625 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE84DD4D1DD5E9B1841CE51F /* Pods-SwiftCSV-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftCSV/Pods-SwiftCSV-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftCSV/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftCSV/Pods-SwiftCSV.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftCSV;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D4D319A725EDADF8014F2599 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA619C1ACAC7BC5257CF8323 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E031CF75398AF0FFCCB76CC0 /* Debug */ = {
+		445BBD0614544A90AF9B9269 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -467,37 +348,156 @@
 			};
 			name = Debug;
 		};
+		737C34CD5C19956227D22FDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB0E22CEE709696E61B99559 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27D19F7BBDCC4CE02B461BBC /* Pods-SwiftCSV-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftCSV/Pods-SwiftCSV-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftCSV/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftCSV/Pods-SwiftCSV.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftCSV;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C01DEFBD3A09A2C3E2167513 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 773994794DB5323761683DBC /* Pods.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C9EA3893A2E3F2D54A2A37B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27D19F7BBDCC4CE02B461BBC /* Pods-SwiftCSV-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftCSV/Pods-SwiftCSV-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftCSV/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftCSV/Pods-SwiftCSV.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftCSV;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2BBCC983417FFCBDB957D5B9 /* Build configuration list for PBXProject "Pods" */ = {
+		356D797F849F2BF332C53172 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E031CF75398AF0FFCCB76CC0 /* Debug */,
-				14EAB4D46BE6D4D3B7126B7D /* Release */,
+				C01DEFBD3A09A2C3E2167513 /* Debug */,
+				3CE0BA7931D60FA7BAF47C32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30B5908772B48B72CA38005B /* Build configuration list for PBXNativeTarget "Pods-SwiftCSV" */ = {
+		B1B2578B29B254A1760DBE18 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAA04C862FB61B96B17CF625 /* Debug */,
-				6292B9B8135C096EBD2DFFA3 /* Release */,
+				445BBD0614544A90AF9B9269 /* Debug */,
+				737C34CD5C19956227D22FDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D277D150D12BE7E2383CA03 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		EF33AF4574D48364F0F7D02B /* Build configuration list for PBXNativeTarget "Pods-SwiftCSV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4D319A725EDADF8014F2599 /* Debug */,
-				A214A9573FAD51EE28442077 /* Release */,
+				C9EA3893A2E3F2D54A2A37B0 /* Debug */,
+				BB0E22CEE709696E61B99559 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 45F16FC9D6DC6DAE7961B3D5 /* Project object */;
+	rootObject = EFF820F00081AC27543AB7A8 /* Project object */;
 }
