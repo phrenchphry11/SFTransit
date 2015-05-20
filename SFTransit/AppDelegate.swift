@@ -15,7 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        var scheduleViewController = storyboard.instantiateViewControllerWithIdentifier("ScheduleViewController") as? ViewController
+        var scheduleNavController = UINavigationController(rootViewController: scheduleViewController!)
+        scheduleNavController.tabBarItem.title = "Schedule"
+
+        var twitterViewController = storyboard.instantiateViewControllerWithIdentifier("TwitterViewController") as? TwitterViewController
+        var twitterNavController = UINavigationController(rootViewController: twitterViewController!)
+        twitterNavController.tabBarItem.title = "Twitter"
+
+        var tabBarController = UITabBarController()
+        tabBarController.viewControllers = [scheduleNavController, twitterNavController]
+
+        window?.rootViewController = tabBarController
+
         return true
     }
 
