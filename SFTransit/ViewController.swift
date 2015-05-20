@@ -83,19 +83,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         self.starterStation = self.allStations[self.departerLocationPickerView.selectedRowInComponent(0)]
         self.endStation = self.allStations[self.departerLocationPickerView.selectedRowInComponent(1)]
         var scheduleInfo = BartClient.sharedInstance.getScheduleInfo(starterStation?.abbreviation, dest: endStation?.abbreviation)
-            
-        println("schedule")
-        println(scheduleInfo)
-//        for schedule in scheduleInfo {
-//            fare = schedule.fare!
-//            println("hello")
-//            println(schedule.fare)
-//            println(schedule.origTimeMin)
-//            println(schedule.legDestTimeMin)
-//            println(schedule.legMaxTrip)
-//            println(schedule.legTransfercode)
-//            println(schedule.origin)
-//        }
         
         if scheduleInfo.count > 1 {
             transfer = "Transfer at:"
