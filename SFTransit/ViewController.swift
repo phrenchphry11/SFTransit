@@ -85,9 +85,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         var scheduleInfo = BartClient.sharedInstance.getScheduleInfo(starterStation?.abbreviation, dest: endStation?.abbreviation)
         
         if scheduleInfo.count > 1 {
-            transfer = "Transfer at:"
+            transfer = "Transfer at: "
             for i in 0..<scheduleInfo.count-1 {
-                transfer += scheduleInfo[i].origin!
+                transfer += self.getStationDisplayNameFromAbbreviation(scheduleInfo[i].origin!)
             }
         } else {
             transfer = ""
@@ -160,6 +160,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         }
         
         return (closestLocation!, closestIndex)
+    }
+    
+    func getStationDisplayNameFromAbbreviation(abbreviation: NSString!) -> String {
+        for station in self.allStations {
+            if station.abbreviation == abbreviation {
+                return station.name!
+            }
+        }
+        
+        return "No station found"
     }
 
 
