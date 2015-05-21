@@ -30,6 +30,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var depLabel: UILabel!
   
     @IBOutlet weak var arLabel: UILabel!
+
     @IBOutlet weak var transferLabel: UILabel!
 
     //@IBOutlet weak var nearestStationLabel: UILabel!
@@ -53,7 +54,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         self.allStations = BartClient.sharedInstance.getStations()
         //self.initLocationManager()
-    
+
         fareLabel.text = "$\(fare)"
         //departureStationLabel.text = starterStation?.name
       //  arrivalStationLabel.text = endStation?.name
@@ -222,6 +223,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.initLocationManager()
         println("button tapped")
     }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let routesVC = segue.destinationViewController as! RouteTableViewController
