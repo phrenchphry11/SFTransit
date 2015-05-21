@@ -142,8 +142,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         for stationLocation in self.allStations {
             if closestLocation != nil {
                 var closestLocationObj = closestLocation!.location
-                println(stationLocation.name)
-                println(stationLocation.location)
                 var currentDistance = curLocation.distanceFromLocation(stationLocation.location)
                 if currentDistance < closestLocationDistance {
                     closestLocation = stationLocation
