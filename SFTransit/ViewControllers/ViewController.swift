@@ -91,7 +91,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         if scheduleInfo.count > 1 {
             transfer = "Transfer at: "
-            for i in 0..<scheduleInfo.count-1 {
+            for i in 1..<scheduleInfo.count {
                 transfer += self.getStationDisplayNameFromAbbreviation(scheduleInfo[i].origin!)
             }
         } else {
@@ -223,14 +223,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var sinfo = BartClient.sharedInstance.getScheduleInfo(self.starterStation?.abbreviation, dest: self.endStation?.abbreviation)
         self.starterStation?.time = self.departureTime.text
         self.endStation?.time = self.arrivalTime.text
-        for s in sinfo{
-            var st = [self.starterStation!]
+        var st: [Station] = []
+
+        for s in sinfo {
             st.extend(s.getStationsCrossed())
             //looks like it includes endStation in getStationsCrossed.
-            routesVC.assignStations(st)
         
         }
-        
+        routesVC.assignStations(st)
+
         //routesVC.stations = self.getAllStationNames()
         
     }
