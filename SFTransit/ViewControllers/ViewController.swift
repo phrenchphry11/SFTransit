@@ -225,7 +225,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let routesVC = segue.destinationViewController as! RouteTableViewController
-        routesVC.stations = self.getAllStationNames()
+        var sinfo = BartClient.sharedInstance.getScheduleInfo(self.starterStation?.abbreviation, dest: self.endStation?.abbreviation)
+        self.starterStation?.time = self.departureTime.text
+        self.endStation?.time = self.arrivalTime.text
+        for s in sinfo{
+            var st = [self.starterStation!]
+            st.extend(s.getStationsCrossed())
+            //looks like it includes endStation in getStationsCrossed.
+            routesVC.assignStations(st)
+        
+        }
+        
+        //routesVC.stations = self.getAllStationNames()
         
     }
 }

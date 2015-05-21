@@ -16,7 +16,7 @@ class Station: NSObject {
     var abbreviation: String?
     var latitude: String?
     var longitude: String?
-    
+    var time: String?
     var nameFound:Bool?
     var abbreviationFound:Bool?
     var latitudeFound:Bool?
@@ -24,12 +24,13 @@ class Station: NSObject {
     
     var location = CLLocation()
     
-    init(name: String?, abbreviation: String?, latitude: String?, longitude: String?){
+    init(name: String?, abbreviation: String?, latitude: String?, longitude: String?, time: String?=""){
         
         self.name = name
         self.abbreviation = abbreviation
         self.latitude = latitude
         self.longitude = longitude
+        self.time = time
         if let latitude = self.latitude {
             if let longitude = self.longitude {
                 self.location = CLLocation(latitude: NSString(string: self.latitude!).doubleValue, longitude: NSString(string: self.longitude!).doubleValue)

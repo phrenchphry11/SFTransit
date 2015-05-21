@@ -16,17 +16,18 @@ class RouteTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        stations = BartClient.sharedInstance.getStations()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .None
-        tableView.reloadData()
-        for family in UIFont.familyNames(){
-            println("\(family)")
-            for font in UIFont.fontNamesForFamilyName(family as! String){
-                println("\(font)")
-            }
+
+    }
+    
+    func assignStations(stationsPassed: [Station]){
+        self.stations = stationsPassed
+        if let tbView = self.tableView{
+            tbView.reloadData()
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
