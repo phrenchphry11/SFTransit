@@ -27,7 +27,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var transfer: String = ""
     var routes: [Route] = []
     
+    @IBOutlet weak var depLabel: UILabel!
   
+    @IBOutlet weak var arLabel: UILabel!
     @IBOutlet weak var transferLabel: UILabel!
 
     //@IBOutlet weak var nearestStationLabel: UILabel!
@@ -45,12 +47,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var fromText: UITextField!
     @IBOutlet weak var toText: UITextField!
 
+    @IBOutlet weak var faLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.allStations = BartClient.sharedInstance.getStations()
         //self.initLocationManager()
-
+    
         fareLabel.text = "$\(fare)"
         //departureStationLabel.text = starterStation?.name
       //  arrivalStationLabel.text = endStation?.name
@@ -59,7 +62,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         fromText.delegate = self
         toText.delegate = self
         self.routes = BartClient.sharedInstance.getRoutes()
-
+        for label in [self.departureTime, self.arrivalTime]{
+            label.text = ""
+        }
+        for label in [self.depLabel, self.arLabel ]{
+            label.hidden = true
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,7 +93,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
 
         if let fare = scheduleInfo.first?.fare {
-            fareLabel.font = UIFont.getLato(.Regular, fontSize: 2.0)
+            fareLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
             fareLabel.text = "$\(scheduleInfo.first!.fare!)"
             
         } else {
@@ -95,7 +104,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
           //  departureStationLabel.text = starterStation.name
           //  arrivalStationLabel.text = endStation.name
         }
-
+        self.depLabel.hidden = false
+        self.arLabel.hidden = false
+        
+        depLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        arLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        faLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
         departureTime.text = scheduleInfo.first?.origTimeMin
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer
@@ -203,9 +217,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             })
         }
     }
+    
     @IBAction func onLocationImgTap(sender: AnyObject) {
         self.initLocationManager()
         println("button tapped")
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let routesVC = segue.destinationViewController as! RouteTableViewController
+        routesVC.stations = self.getAllStationNames()
+        
     }
 }
 
