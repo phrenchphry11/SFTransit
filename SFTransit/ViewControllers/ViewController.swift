@@ -50,6 +50,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var faLabel: UILabel!
 
+    @IBOutlet weak var getRouteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.allStations = BartClient.sharedInstance.getStations()
@@ -69,7 +70,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         for label in [self.depLabel, self.arLabel ]{
             label.hidden = true
         }
-        
+
+        depLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        arLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        faLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        getRouteButton.titleLabel!.font = UIFont.getLato(.Regular, fontSize: 15.0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -108,9 +113,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.depLabel.hidden = false
         self.arLabel.hidden = false
         
-        depLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
-        arLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
-        faLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
         departureTime.text = scheduleInfo.first?.origTimeMin
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer

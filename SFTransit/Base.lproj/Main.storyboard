@@ -139,6 +139,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00q-0T-8cn">
                                 <rect key="frame" x="84" y="371" width="152" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Get Route Information">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -165,6 +166,7 @@
                         <outlet property="faLabel" destination="adt-as-k9f" id="tYB-dY-6VY"/>
                         <outlet property="fareLabel" destination="uCr-j9-XyE" id="g0I-Qm-Q3q"/>
                         <outlet property="fromText" destination="wlb-02-lRV" id="0aE-88-Z86"/>
+                        <outlet property="getRouteButton" destination="00q-0T-8cn" id="LtA-em-Isr"/>
                         <outlet property="toText" destination="0Bg-bp-NVW" id="s0H-jh-Syk"/>
                         <outlet property="transferLabel" destination="ExS-yM-k3h" id="aRL-r9-tbL"/>
                     </connections>
