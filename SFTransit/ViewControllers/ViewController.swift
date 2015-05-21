@@ -63,10 +63,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         transferLabel.text = transfer
         
         
-        
-        self.routes = BartClient.sharedInstance.getRoutes()
-
-        
     }
 
     override func didReceiveMemoryWarning() {
