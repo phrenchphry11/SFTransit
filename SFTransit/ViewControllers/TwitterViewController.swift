@@ -16,6 +16,7 @@ class TwitterViewController: UIViewController {
 
     var twitterIsAuthenticated = false
     var tweets: [Tweet]?
+    var refreshControl = UIRefreshControl()
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -27,6 +28,18 @@ class TwitterViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
 
+        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+
+        refresh()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    func refresh() {
         let swifter = Swifter(consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret, appOnly: true)
         swifter.authorizeAppOnlyWithSuccess({ (accessToken, response) -> Void in
             self.twitterIsAuthenticated = true
@@ -38,20 +51,13 @@ class TwitterViewController: UIViewController {
                 },
                 failure: { (error) -> Void in
                     println(error)
-                })
+            })
             },
             failure: { (error) -> Void in
                 println("Error Authenticating: \(error.localizedDescription)")
-            })
-
-        // Do any additional setup after loading the view.
+        })
+        refreshControl.endRefreshing()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
