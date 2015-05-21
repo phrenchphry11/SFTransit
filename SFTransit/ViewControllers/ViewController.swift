@@ -203,19 +203,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // I couldn't get this to work with `withObjects`
         MMPickerView.showPickerViewInView(view, withStrings: self.getAllStationNames(), withOptions: nil) { (selectedString) -> Void in
             self.fromText.text = selectedString
-            MMPickerView.dismissWithCompletion({ (someString) -> Void in
-                self.stationsChanged(originIndex: self.getStationIndexByName(self.fromText.text),
-                    destinationIndex: self.getStationIndexByName(self.toText.text))
-            })
+            self.stationsChanged(originIndex: self.getStationIndexByName(self.fromText.text),
+                destinationIndex: self.getStationIndexByName(self.toText.text))
         }
     }
     @IBAction func onToTouchDown(sender: AnyObject) {
         MMPickerView.showPickerViewInView(view, withStrings: self.getAllStationNames(), withOptions: nil) { (selectedString) -> Void in
             self.toText.text = selectedString
-            MMPickerView.dismissWithCompletion({ (someString) -> Void in
-                self.stationsChanged(originIndex: self.getStationIndexByName(self.fromText.text),
-                    destinationIndex: self.getStationIndexByName(self.toText.text))
-            })
+            self.stationsChanged(originIndex: self.getStationIndexByName(self.fromText.text),
+                destinationIndex: self.getStationIndexByName(self.toText.text))
         }
     }
     
