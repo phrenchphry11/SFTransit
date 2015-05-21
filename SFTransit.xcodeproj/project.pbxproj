@@ -44,6 +44,7 @@
 		530F90AA1B0C642400A3D2E2 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90A91B0C642400A3D2E2 /* TweetCell.swift */; };
 		530F90AC1B0C646400A3D2E2 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90AB1B0C646400A3D2E2 /* UIImageView+Utils.swift */; };
 		530F90B21B0D4D2800A3D2E2 /* RouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90B11B0D4D2800A3D2E2 /* RouteTableViewController.swift */; };
+		534B836E1B0DA360006B3239 /* NSDate+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534B836D1B0DA360006B3239 /* NSDate+Utils.swift */; };
 		537CC1DE1B0D4EDD005F6F4E /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537CC1DD1B0D4EDD005F6F4E /* StationCell.swift */; };
 		537CC1E01B0D5546005F6F4E /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537CC1DF1B0D5546005F6F4E /* UIColor+Colors.swift */; };
 		537CC1E51B0D5B3F005F6F4E /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 537CC1E21B0D5B3F005F6F4E /* Lato-Regular.ttf */; };
@@ -112,6 +113,7 @@
 		530F90A91B0C642400A3D2E2 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		530F90AB1B0C646400A3D2E2 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		530F90B11B0D4D2800A3D2E2 /* RouteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
+		534B836D1B0DA360006B3239 /* NSDate+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Utils.swift"; sourceTree = "<group>"; };
 		537CC1DD1B0D4EDD005F6F4E /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		537CC1DF1B0D5546005F6F4E /* UIColor+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		537CC1E21B0D5B3F005F6F4E /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				530F90AB1B0C646400A3D2E2 /* UIImageView+Utils.swift */,
 				537CC1DF1B0D5546005F6F4E /* UIColor+Colors.swift */,
 				537CC1E81B0D5D3E005F6F4E /* UIFont+App.swift */,
+				534B836D1B0DA360006B3239 /* NSDate+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				530F907B1B0C336200A3D2E2 /* SwifterFavorites.swift in Sources */,
 				530F90841B0C336200A3D2E2 /* SwifterSearch.swift in Sources */,
 				530F909D1B0C639900A3D2E2 /* TweetUser.swift in Sources */,
+				534B836E1B0DA360006B3239 /* NSDate+Utils.swift in Sources */,
 				530F907A1B0C336200A3D2E2 /* SwifterCredential.swift in Sources */,
 				530F90811B0C336200A3D2E2 /* SwifterOAuthClient.swift in Sources */,
 				F43D09FE1B095BFD00F73939 /* AppDelegate.swift in Sources */,

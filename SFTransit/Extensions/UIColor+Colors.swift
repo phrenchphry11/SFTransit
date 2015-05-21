@@ -10,6 +10,10 @@ import UIKit
 
 extension UIColor {
 
+    class func myGrayColor() -> UIColor {
+        return UIColor(red: 117/255, green: 135/255, blue: 149/255, alpha: 1)
+    }
+
     // Creates a UIColor from a Hex string.
     // https://gist.github.com/arshad/de147c42d7b3063ef7bc
     static func createWithHex(hex:String) -> UIColor {

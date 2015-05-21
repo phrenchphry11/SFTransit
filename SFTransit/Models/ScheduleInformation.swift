@@ -74,5 +74,37 @@ class ScheduleInformation: NSObject {
         self.legMaxTrip = Int(maxTripTime)
         
     }
+    
+    func getStationsCrossed() -> [Station] {
+        var routeStations = self.route?.routeStations
+        var stationsCrossed: [String] = []
+        var started = false
+        for station in routeStations! {
+            if station == self.origin {
+                started = true
+            }
+            if started == true {
+                stationsCrossed.append(station)
+            }
+            if station == self.legDestination {
+                break
+            }
+            
+        }
+        
+        var stationObjs = BartClient.sharedInstance.getStations()
+        var stationObjsCrossed: [Station] = []
+
+        for station in stationsCrossed {
+            for stationObj in stationObjs {
+                if station == stationObj.abbreviation {
+                    stationObjsCrossed.append(stationObj)
+                    break
+                }
+
+            }
+        }
+        return stationObjsCrossed
+    }
         
 }

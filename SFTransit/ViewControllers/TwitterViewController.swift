@@ -65,7 +65,9 @@ class TwitterViewController: UIViewController {
 }
 
 extension TwitterViewController: UITableViewDelegate {
-
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 }
 
 extension TwitterViewController: UITableViewDataSource {
