@@ -75,7 +75,7 @@ class ScheduleInformation: NSObject {
         
     }
     
-    func getStationsCrossed() -> [String] {
+    func getStationsCrossed() -> [Station] {
         var routeStations = self.route?.routeStations
         var stationsCrossed: [String] = []
         var started = false
@@ -91,7 +91,20 @@ class ScheduleInformation: NSObject {
             }
             
         }
-        return stationsCrossed
+        
+        var stationObjs = BartClient.sharedInstance.getStations()
+        var stationObjsCrossed: [Station] = []
+
+        for station in stationsCrossed {
+            for stationObj in stationObjs {
+                if station == stationObj.abbreviation {
+                    stationObjsCrossed.append(stationObj)
+                    break
+                }
+
+            }
+        }
+        return stationObjsCrossed
     }
         
 }

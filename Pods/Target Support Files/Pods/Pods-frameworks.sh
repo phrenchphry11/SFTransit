@@ -50,10 +50,12 @@ code_sign() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'AFNetworking.framework'
   install_framework 'DateTools.framework'
+  install_framework 'MMPickerView.framework'
   install_framework 'SwiftCSV.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'AFNetworking.framework'
   install_framework 'DateTools.framework'
+  install_framework 'MMPickerView.framework'
   install_framework 'SwiftCSV.framework'
 fi

@@ -43,6 +43,13 @@
 		530F90A61B0C63F100A3D2E2 /* ScheduleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90A51B0C63F100A3D2E2 /* ScheduleInformation.swift */; };
 		530F90AA1B0C642400A3D2E2 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90A91B0C642400A3D2E2 /* TweetCell.swift */; };
 		530F90AC1B0C646400A3D2E2 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90AB1B0C646400A3D2E2 /* UIImageView+Utils.swift */; };
+		530F90B21B0D4D2800A3D2E2 /* RouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F90B11B0D4D2800A3D2E2 /* RouteTableViewController.swift */; };
+		537CC1DE1B0D4EDD005F6F4E /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537CC1DD1B0D4EDD005F6F4E /* StationCell.swift */; };
+		537CC1E01B0D5546005F6F4E /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537CC1DF1B0D5546005F6F4E /* UIColor+Colors.swift */; };
+		537CC1E51B0D5B3F005F6F4E /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 537CC1E21B0D5B3F005F6F4E /* Lato-Regular.ttf */; };
+		537CC1E61B0D5B3F005F6F4E /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 537CC1E31B0D5B3F005F6F4E /* Lato-Medium.ttf */; };
+		537CC1E71B0D5B3F005F6F4E /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 537CC1E41B0D5B3F005F6F4E /* Lato-Bold.ttf */; };
+		537CC1E91B0D5D3E005F6F4E /* UIFont+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537CC1E81B0D5D3E005F6F4E /* UIFont+App.swift */; };
 		8B0F2769174ADFC866135F6F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281442C23B9F2AAF26CB29FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F4223C331B0AE2FA00BAE59B /* BartClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4223C321B0AE2FA00BAE59B /* BartClient.swift */; };
 		F43D09FE1B095BFD00F73939 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D09FD1B095BFD00F73939 /* AppDelegate.swift */; };
@@ -104,6 +111,13 @@
 		530F90A51B0C63F100A3D2E2 /* ScheduleInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleInformation.swift; sourceTree = "<group>"; };
 		530F90A91B0C642400A3D2E2 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		530F90AB1B0C646400A3D2E2 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
+		530F90B11B0D4D2800A3D2E2 /* RouteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
+		537CC1DD1B0D4EDD005F6F4E /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
+		537CC1DF1B0D5546005F6F4E /* UIColor+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
+		537CC1E21B0D5B3F005F6F4E /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		537CC1E31B0D5B3F005F6F4E /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		537CC1E41B0D5B3F005F6F4E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		537CC1E81B0D5D3E005F6F4E /* UIFont+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+App.swift"; sourceTree = "<group>"; };
 		7D2601BD7A4E445AAAE0B0C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C15F2832B548A475270E3D40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F4223C321B0AE2FA00BAE59B /* BartClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartClient.swift; sourceTree = "<group>"; };
@@ -192,6 +206,7 @@
 			children = (
 				530F90A11B0C63D600A3D2E2 /* ViewController.swift */,
 				530F90A21B0C63D600A3D2E2 /* TwitterViewController.swift */,
+				530F90B11B0D4D2800A3D2E2 /* RouteTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -200,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				530F90A91B0C642400A3D2E2 /* TweetCell.swift */,
+				537CC1DD1B0D4EDD005F6F4E /* StationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,8 +224,20 @@
 			isa = PBXGroup;
 			children = (
 				530F90AB1B0C646400A3D2E2 /* UIImageView+Utils.swift */,
+				537CC1DF1B0D5546005F6F4E /* UIColor+Colors.swift */,
+				537CC1E81B0D5D3E005F6F4E /* UIFont+App.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		537CC1E11B0D5B13005F6F4E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				537CC1E21B0D5B3F005F6F4E /* Lato-Regular.ttf */,
+				537CC1E31B0D5B3F005F6F4E /* Lato-Medium.ttf */,
+				537CC1E41B0D5B3F005F6F4E /* Lato-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		7898243158B4A401A97F46C6 /* Frameworks */ = {
@@ -254,6 +282,7 @@
 		F43D09FA1B095BFD00F73939 /* SFTransit */ = {
 			isa = PBXGroup;
 			children = (
+				537CC1E11B0D5B13005F6F4E /* Fonts */,
 				530F90A81B0C640100A3D2E2 /* Extensions */,
 				530F90991B0C635800A3D2E2 /* Models */,
 				530F90A71B0C63FC00A3D2E2 /* Views */,
@@ -376,8 +405,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				537CC1E71B0D5B3F005F6F4E /* Lato-Bold.ttf in Resources */,
 				530F90711B0C336200A3D2E2 /* Info.plist in Resources */,
+				537CC1E61B0D5B3F005F6F4E /* Lato-Medium.ttf in Resources */,
 				F43D0A031B095BFD00F73939 /* Main.storyboard in Resources */,
+				537CC1E51B0D5B3F005F6F4E /* Lato-Regular.ttf in Resources */,
 				F43D0A081B095BFD00F73939 /* LaunchScreen.xib in Resources */,
 				F43D0A051B095BFD00F73939 /* Images.xcassets in Resources */,
 			);
@@ -449,9 +481,12 @@
 				530F90801B0C336200A3D2E2 /* SwifterMessages.swift in Sources */,
 				F4223C331B0AE2FA00BAE59B /* BartClient.swift in Sources */,
 				530F909E1B0C639900A3D2E2 /* Tweet.swift in Sources */,
+				537CC1E91B0D5D3E005F6F4E /* UIFont+App.swift in Sources */,
 				530F908B1B0C336200A3D2E2 /* SwifterUsers.swift in Sources */,
 				530F90821B0C336200A3D2E2 /* SwifterPlaces.swift in Sources */,
 				530F90891B0C336200A3D2E2 /* SwifterTrends.swift in Sources */,
+				530F90B21B0D4D2800A3D2E2 /* RouteTableViewController.swift in Sources */,
+				537CC1DE1B0D4EDD005F6F4E /* StationCell.swift in Sources */,
 				530F90751B0C336200A3D2E2 /* Swifter.swift in Sources */,
 				530F90731B0C336200A3D2E2 /* NSURL+Swifter.swift in Sources */,
 				530F907E1B0C336200A3D2E2 /* SwifterHTTPRequest.swift in Sources */,
@@ -460,6 +495,7 @@
 				530F908A1B0C336200A3D2E2 /* SwifterTweets.swift in Sources */,
 				530F90721B0C336200A3D2E2 /* JSON.swift in Sources */,
 				530F90761B0C336200A3D2E2 /* SwifterAccountsClient.swift in Sources */,
+				537CC1E01B0D5546005F6F4E /* UIColor+Colors.swift in Sources */,
 				530F907C1B0C336200A3D2E2 /* SwifterFollowers.swift in Sources */,
 				530F90701B0C336200A3D2E2 /* Dictionary+Swifter.swift in Sources */,
 				530F907B1B0C336200A3D2E2 /* SwifterFavorites.swift in Sources */,

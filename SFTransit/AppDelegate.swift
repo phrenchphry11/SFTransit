@@ -15,11 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        var defaultFont = UIFont.getLato(.Regular, fontSize: 19.0)
+        UILabel.appearance().font = defaultFont
+        var textAttribute = [NSFontAttributeName: defaultFont]
+        UINavigationBar.appearance().titleTextAttributes = textAttribute
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        UINavigationBar.appearance().barTintColor = UIColor.createWithHex("#ececec")
 
         var scheduleViewController = storyboard.instantiateViewControllerWithIdentifier("ScheduleViewController") as? ViewController
+//        var scheduleViewController = storyboard.instantiateViewControllerWithIdentifier("RouteTableViewController") as? RouteTableViewController
         var scheduleNavController = UINavigationController(rootViewController: scheduleViewController!)
         scheduleNavController.tabBarItem.title = "Schedule"
         scheduleNavController.tabBarItem.image = UIImage(named: "Route")
@@ -31,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         var tabBarController = UITabBarController()
         tabBarController.viewControllers = [scheduleNavController, twitterNavController]
+
 
         window?.rootViewController = tabBarController
 

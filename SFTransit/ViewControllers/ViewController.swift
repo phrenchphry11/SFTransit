@@ -9,8 +9,9 @@
 import SwiftCSV
 import CoreLocation
 import UIKit
+import MMPickerView
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     var allStations: [Station] = []
     var lastLocation = CLLocation()
     var locationAuthorizationStatus: CLAuthorizationStatus!
@@ -27,11 +28,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     var routes: [Route] = []
     
     @IBOutlet weak var transferLabel: UILabel!
-    
-    @IBOutlet weak var arrivalLocationPickerView: UIPickerView!
-    
-    @IBOutlet weak var departerLocationPickerView: UIPickerView!
-    
+
     @IBOutlet weak var nearestStationLabel: UILabel!
     
     @IBOutlet weak var fareLabel: UILabel!
@@ -44,48 +41,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     
     @IBOutlet weak var arrivalTime: UILabel!
     
+    @IBOutlet weak var fromText: UITextField!
+    @IBOutlet weak var toText: UITextField!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.allStations = BartClient.sharedInstance.getStations()
         self.initLocationManager()
-        self.departerLocationPickerView.delegate = self
-        self.departerLocationPickerView.dataSource = self
-        self.departerLocationPickerView.selectRow(closestIndex, inComponent: 0, animated: true)
-        var starterStationIndex = self.departerLocationPickerView.selectedRowInComponent(0)
-        var endStationIndex = self.departerLocationPickerView.selectedRowInComponent(1)
-        starterStation = self.allStations[starterStationIndex]
-        endStation = self.allStations[endStationIndex]
-        var scheduleInfo = BartClient.sharedInstance.getScheduleInfo(starterStation?.abbreviation, dest: endStation?.abbreviation)
 
         fareLabel.text = "$\(fare)"
         departureStationLabel.text = starterStation?.name
         arrivalStationLabel.text = endStation?.name
         transferLabel.text = transfer
-        
-        
+
+        fromText.delegate = self
+        toText.delegate = self
+        self.routes = BartClient.sharedInstance.getRoutes()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 2
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.allStations.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return self.allStations[row].name
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.starterStation = self.allStations[self.departerLocationPickerView.selectedRowInComponent(0)]
-        self.endStation = self.allStations[self.departerLocationPickerView.selectedRowInComponent(1)]
+
+    func stationsChanged(#originIndex: Int, destinationIndex: Int) {
+        if originIndex == -1 || destinationIndex == -1 {
+            return
+        }
+        self.starterStation = self.allStations[originIndex]
+        self.endStation = self.allStations[destinationIndex]
         var scheduleInfo = BartClient.sharedInstance.getScheduleInfo(starterStation?.abbreviation, dest: endStation?.abbreviation)
-        
+
         if scheduleInfo.count > 1 {
             transfer = "Transfer at: "
             for i in 0..<scheduleInfo.count-1 {
@@ -94,13 +81,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         } else {
             transfer = ""
         }
-        
+
         if let fare = scheduleInfo.first?.fare {
             fareLabel.text = "$\(scheduleInfo.first!.fare!)"
         } else {
             fareLabel.text = "$0.00"
         }
-        
+
         if let starterStation = starterStation, endStation = endStation {
             departureStationLabel.text = starterStation.name
             arrivalStationLabel.text = endStation.name
@@ -111,10 +98,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         transferLabel.text = transfer
         
         for si in scheduleInfo {
-            println(si.getStationsCrossed())
+            for s in si.getStationsCrossed() {
+                println(s.name)
+            }
         }
     }
-    
+
     func initLocationManager() {
         seenError = false
         locationFixAchieved = false
@@ -147,24 +136,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     
     func getNearestBartStation(curLocation: CLLocation) -> (Station?, Int) {
         var closestLocation: Station?
-        var closestLocationDistance: CLLocationDistance = -1
+        var closestLocationDistance: CLLocationDistance = Double.infinity
         var index = 0
         var closestIndex = 0
-        for location in self.allStations {
+        for stationLocation in self.allStations {
             if closestLocation != nil {
                 var closestLocationObj = closestLocation!.location
-                var currentDistance = curLocation.distanceFromLocation(closestLocationObj)
+                println(stationLocation.name)
+                println(stationLocation.location)
+                var currentDistance = curLocation.distanceFromLocation(stationLocation.location)
                 if currentDistance < closestLocationDistance {
-                    closestLocation = location
+                    closestLocation = stationLocation
                     closestLocationDistance = currentDistance
                     closestIndex = index
                 }
             } else {
-                closestLocation = location
+                closestLocation = stationLocation
             }
             index += 1
         }
-        
         return (closestLocation!, closestIndex)
     }
     
@@ -178,6 +168,45 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         return "No station found"
     }
 
+    func getAllStationNames() -> [String] {
+        return self.allStations.map { (station) -> String in
+            return station.name!
+        }
+    }
 
+    func getStationIndexByName(name: String) -> Int {
+        for (index, station) in enumerate(self.allStations) {
+            if station.name == name {
+                return index
+            }
+        }
+        return -1
+    }
+
+    @IBAction func onFromTouchDown(sender: AnyObject) {
+        // I couldn't get this to work with `withObjects`
+        MMPickerView.showPickerViewInView(view, withStrings: self.getAllStationNames(), withOptions: nil) { (selectedString) -> Void in
+            self.fromText.text = selectedString
+            MMPickerView.dismissWithCompletion({ (someString) -> Void in
+                self.stationsChanged(originIndex: self.getStationIndexByName(self.fromText.text),
+                    destinationIndex: self.getStationIndexByName(self.toText.text))
+            })
+        }
+    }
+    @IBAction func onToTouchDown(sender: AnyObject) {
+        MMPickerView.showPickerViewInView(view, withStrings: self.getAllStationNames(), withOptions: nil) { (selectedString) -> Void in
+            self.toText.text = selectedString
+            MMPickerView.dismissWithCompletion({ (someString) -> Void in
+                self.stationsChanged(originIndex: self.getStationIndexByName(self.fromText.text),
+                    destinationIndex: self.getStationIndexByName(self.toText.text))
+            })
+        }
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return false
+    }
 }
 

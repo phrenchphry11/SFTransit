@@ -1,0 +1,6 @@
+framework module MMPickerView {
+  umbrella header "Pods-MMPickerView-umbrella.h"
+
+  export *
+  module * { export * }
+}
