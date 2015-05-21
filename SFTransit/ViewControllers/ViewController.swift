@@ -9,6 +9,7 @@
 import SwiftCSV
 import CoreLocation
 import UIKit
+import MMPickerView
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     var allStations: [Station] = []
@@ -43,6 +44,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     
     @IBOutlet weak var arrivalTime: UILabel!
     
+    @IBOutlet weak var fromText: UITextField!
+    @IBOutlet weak var toText: UITextField!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.allStations = BartClient.sharedInstance.getStations()
@@ -60,7 +65,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         departureStationLabel.text = starterStation?.name
         arrivalStationLabel.text = endStation?.name
         transferLabel.text = transfer
-        
+
+        fromText.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -172,6 +178,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         return "No station found"
     }
 
+    @IBAction func onFromTouchDown(sender: AnyObject) {
+        println("hi down")
+        MMPickerView.showPickerViewInView(view, withStrings: ["a", "b", "c"], withOptions: nil) { (selectedString) -> Void in
+            self.fromText.text = selectedString
+            MMPickerView.dismissWithCompletion({ (someString) -> Void in
+                //
+            })
+        }
+//        MMPickerView.showPickerViewInView(view, withObjects: self.allStations, withOptions: nil,
+//            objectToStringConverter: { (selectedItem) -> String! in
+//            return "test"
+//        }) { (selectedItem) -> Void in
+//            self.fromText.text = selectedItem
+//        }
 
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return false
+    }
 }
 
