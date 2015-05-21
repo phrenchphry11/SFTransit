@@ -115,11 +115,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer
         
-        for si in scheduleInfo {
-            for s in si.getStationsCrossed() {
-                println(s.name)
-            }
-        }
     }
 
     func initLocationManager() {
