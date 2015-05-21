@@ -25,7 +25,8 @@ class StationCell: UITableViewCell {
 
     func setStation(station: Station) {
         stationName.text = station.name!
-        //timeLabel.text = station.
+        timeLabel.text = station.time
+        timeLabel.font = UIFont.getLato(.Regular, fontSize: 8.0)
         lineBar.backgroundColor = UIColor.createWithHex("#cc0000")
     }
 

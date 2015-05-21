@@ -27,38 +27,48 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var transfer: String = ""
     var routes: [Route] = []
     
+    @IBOutlet weak var depLabel: UILabel!
+  
+    @IBOutlet weak var arLabel: UILabel!
     @IBOutlet weak var transferLabel: UILabel!
 
-    @IBOutlet weak var nearestStationLabel: UILabel!
+    //@IBOutlet weak var nearestStationLabel: UILabel!
     
     @IBOutlet weak var fareLabel: UILabel!
     
-    @IBOutlet weak var departureStationLabel: UILabel!
+   // @IBOutlet weak var departureStationLabel: UILabel!
     
     @IBOutlet weak var departureTime: UILabel!
     
-    @IBOutlet weak var arrivalStationLabel: UILabel!
+    //@IBOutlet weak var arrivalStationLabel: UILabel!
     
     @IBOutlet weak var arrivalTime: UILabel!
     
     @IBOutlet weak var fromText: UITextField!
     @IBOutlet weak var toText: UITextField!
 
+    @IBOutlet weak var faLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.allStations = BartClient.sharedInstance.getStations()
-        self.initLocationManager()
-
+        //self.initLocationManager()
+    
         fareLabel.text = "$\(fare)"
-        departureStationLabel.text = starterStation?.name
-        arrivalStationLabel.text = endStation?.name
+        //departureStationLabel.text = starterStation?.name
+      //  arrivalStationLabel.text = endStation?.name
         transferLabel.text = transfer
 
         fromText.delegate = self
         toText.delegate = self
         self.routes = BartClient.sharedInstance.getRoutes()
-
+        for label in [self.departureTime, self.arrivalTime]{
+            label.text = ""
+        }
+        for label in [self.depLabel, self.arLabel ]{
+            label.hidden = true
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,16 +93,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
 
         if let fare = scheduleInfo.first?.fare {
+            fareLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
             fareLabel.text = "$\(scheduleInfo.first!.fare!)"
+            
         } else {
             fareLabel.text = "$0.00"
         }
 
         if let starterStation = starterStation, endStation = endStation {
-            departureStationLabel.text = starterStation.name
-            arrivalStationLabel.text = endStation.name
+          //  departureStationLabel.text = starterStation.name
+          //  arrivalStationLabel.text = endStation.name
         }
-
+        self.depLabel.hidden = false
+        self.arLabel.hidden = false
+        
+        depLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        arLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        faLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
         departureTime.text = scheduleInfo.first?.origTimeMin
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer
@@ -131,7 +148,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
         (self.nearestStation, closestIndex) = getNearestBartStation(manager.location)
         var stationName = self.nearestStation!.name
-        self.nearestStationLabel.text = stationName
+        self.fromText.text = stationName
     }
     
     func getNearestBartStation(curLocation: CLLocation) -> (Station?, Int) {
@@ -199,6 +216,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     destinationIndex: self.getStationIndexByName(self.toText.text))
             })
         }
+    }
+    
+    @IBAction func onLocationImgTap(sender: AnyObject) {
+        self.initLocationManager()
+        println("button tapped")
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let routesVC = segue.destinationViewController as! RouteTableViewController
+        var sinfo = BartClient.sharedInstance.getScheduleInfo(self.starterStation?.abbreviation, dest: self.endStation?.abbreviation)
+        self.starterStation?.time = self.departureTime.text
+        self.endStation?.time = self.arrivalTime.text
+        for s in sinfo{
+            var st = [self.starterStation!]
+            st.extend(s.getStationsCrossed())
+            //looks like it includes endStation in getStationsCrossed.
+            routesVC.assignStations(st)
+        
+        }
+        
+        //routesVC.stations = self.getAllStationNames()
+        
     }
 }
 
