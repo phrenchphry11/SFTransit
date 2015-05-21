@@ -86,7 +86,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         if scheduleInfo.count > 1 {
             transfer = "Transfer at: "
-            for i in 0..<scheduleInfo.count-1 {
+            for i in 1..<scheduleInfo.count {
                 transfer += self.getStationDisplayNameFromAbbreviation(scheduleInfo[i].origin!)
             }
         } else {
