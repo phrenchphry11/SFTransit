@@ -74,5 +74,24 @@ class ScheduleInformation: NSObject {
         self.legMaxTrip = Int(maxTripTime)
         
     }
+    
+    func getStationsCrossed() -> [String] {
+        var routeStations = self.route?.routeStations
+        var stationsCrossed: [String] = []
+        var started = false
+        for station in routeStations! {
+            if station == self.origin {
+                started = true
+            }
+            if started == true {
+                stationsCrossed.append(station)
+            }
+            if station == self.legDestination {
+                break
+            }
+            
+        }
+        return stationsCrossed
+    }
         
 }

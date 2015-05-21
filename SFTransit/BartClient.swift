@@ -266,7 +266,9 @@ class BartClient: NSObject, NSXMLParserDelegate {
                 //create new station and populate it
                 
                 var route: Route = Route(routeColor: currentRouteColor, routeName: currentRouteName, routeId: currentRouteId, routeNum: currentRouteNum, routeAbbr: currentRouteAbbr, routeStations: currentRouteStations)
-                    routes.append(route)
+                routes.append(route)
+                currentRouteStations = []
+                
             }
                 
             passData = false

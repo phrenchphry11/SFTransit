@@ -109,6 +109,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         departureTime.text = scheduleInfo.first?.origTimeMin
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer
+        
+        for si in scheduleInfo {
+            println(si.getStationsCrossed())
+        }
     }
     
     func initLocationManager() {
