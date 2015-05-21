@@ -108,6 +108,16 @@ class BartClient: NSObject, NSXMLParserDelegate {
             xmlParser.parse()
         }
         
+        var routes = BartClient.sharedInstance.getRoutes()
+        
+        for leg in legs {
+            for route in routes {
+                if route.routeId == leg.routeId {
+                    leg.route = route
+                }
+            }
+        }
+        
         return legs
     }
     
