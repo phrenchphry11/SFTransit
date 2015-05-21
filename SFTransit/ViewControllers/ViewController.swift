@@ -50,6 +50,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var faLabel: UILabel!
 
+    @IBOutlet weak var getRouteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.allStations = BartClient.sharedInstance.getStations()
@@ -69,7 +70,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         for label in [self.depLabel, self.arLabel]{
             label.hidden = true
         }
-        
+
+        depLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        arLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        faLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
+        getRouteButton.titleLabel!.font = UIFont.getLato(.Regular, fontSize: 15.0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +91,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         if scheduleInfo.count > 1 {
             transfer = "Transfer at: "
-            for i in 0..<scheduleInfo.count-1 {
+            for i in 1..<scheduleInfo.count {
                 transfer += self.getStationDisplayNameFromAbbreviation(scheduleInfo[i].origin!)
             }
         } else {
@@ -108,12 +113,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.depLabel.hidden = false
         self.arLabel.hidden = false
         
-        depLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
-        arLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
-        faLabel.font = UIFont.getLato(.Regular, fontSize: 18.0)
         departureTime.text = scheduleInfo.first?.origTimeMin
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer
+        
         
     }
 
@@ -166,6 +169,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
             index += 1
         }
+        locationManager.stopUpdatingLocation()
+
         return (closestLocation!, closestIndex)
     }
     
@@ -222,8 +227,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var sinfo = BartClient.sharedInstance.getScheduleInfo(self.starterStation?.abbreviation, dest: self.endStation?.abbreviation)
         self.starterStation?.time = self.departureTime.text
         self.endStation?.time = self.arrivalTime.text
-        for s in sinfo{
-            var st = [self.starterStation!]
+        var st: [Station] = []
+
+        for s in sinfo {
             st.extend(s.getStationsCrossed())
             //looks like it includes endStation in getStationsCrossed.
             
@@ -233,8 +239,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         }
         
-
-         
     }
 }
 
