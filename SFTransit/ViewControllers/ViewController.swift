@@ -66,7 +66,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         for label in [self.departureTime, self.arrivalTime]{
             label.text = ""
         }
-        for label in [self.depLabel, self.arLabel ]{
+        for label in [self.depLabel, self.arLabel]{
             label.hidden = true
         }
         
@@ -215,8 +215,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         println("button tapped")
     }
 
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+       
         let routesVC = segue.destinationViewController as! RouteTableViewController
         var sinfo = BartClient.sharedInstance.getScheduleInfo(self.starterStation?.abbreviation, dest: self.endStation?.abbreviation)
         self.starterStation?.time = self.departureTime.text
@@ -225,12 +226,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             var st = [self.starterStation!]
             st.extend(s.getStationsCrossed())
             //looks like it includes endStation in getStationsCrossed.
-            routesVC.assignStations(st)
+            
+            routesVC.assignStations(st, route: s.route! )
+           
+            
         
         }
         
-        //routesVC.stations = self.getAllStationNames()
-        
+
+         
     }
 }
 

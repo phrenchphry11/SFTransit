@@ -13,7 +13,8 @@ class RouteTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var stations: [Station]?
-
+    var routeColor = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -22,13 +23,15 @@ class RouteTableViewController: UIViewController {
 
     }
     
-    func assignStations(stationsPassed: [Station]){
+    func assignStations(stationsPassed: [Station], route: Route){
         self.stations = stationsPassed
+        self.routeColor = route.routeColor!
         if let tbView = self.tableView{
             tbView.reloadData()
         }
         
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -58,7 +61,7 @@ extension RouteTableViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("StationCell", forIndexPath: indexPath) as! StationCell
         var station = stations![indexPath.row]
-        cell.setStation(station)
+        cell.setStation(station,color: self.routeColor)
         return cell
     }
 }
