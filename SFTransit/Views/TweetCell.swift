@@ -28,9 +28,17 @@ class TweetCell: UITableViewCell {
         self.separatorInset = UIEdgeInsetsZero
         self.layoutMargins = UIEdgeInsetsZero
 
+        var font = UIFont.getLato(.Regular, fontSize: 13.0)
+        nameLabel.font = font
+        usernameLabel.font = font
+        timeLabel.font = font
+        messageLabel.font = font
+
         pictureView.layer.cornerRadius = 3
         pictureView.clipsToBounds = true
 
+        timeLabel.textColor = UIColor.myGrayColor()
+        usernameLabel.textColor = UIColor.myGrayColor()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -47,6 +55,11 @@ class TweetCell: UITableViewCell {
             pictureView.loadAsync(imageURL!, animate: true, failure: nil)
         }
         messageLabel.text = tweet.text
-        timeLabel.text = tweet.createdAt?.shortTimeAgoSinceNow()
+        if let createdAt = tweet.createdAt {
+            timeLabel.text = NSDate.shortTimeAgoSince(createdAt)
+        } else {
+            timeLabel.text = ""
+        }
+        timeLabel.sizeToFit()
     }
 }

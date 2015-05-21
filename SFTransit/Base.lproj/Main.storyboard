@@ -242,9 +242,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKK-Qx-Ael" userLabel="Container">
-                                                    <rect key="frame" x="66" y="13" width="246" height="69"/>
+                                                    <rect key="frame" x="66" y="10" width="246" height="72"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaS-N6-4Hv">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="3h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaS-N6-4Hv">
                                                             <rect key="frame" x="232" y="0.0" width="14" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -263,7 +263,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="I can't be the only a bit upset about the new Hallmark Channel lineup. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnp-T1-qqw" userLabel="I can't be the only a bit upset about the new Hallmark Channel lineup.">
-                                                            <rect key="frame" x="1" y="16" width="245" height="43"/>
+                                                            <rect key="frame" x="1" y="16" width="245" height="51"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -274,7 +274,7 @@
                                                         <constraint firstItem="cwd-FN-QF2" firstAttribute="leading" secondItem="egh-Te-8Jr" secondAttribute="trailing" constant="6" id="AVi-fw-QlW"/>
                                                         <constraint firstItem="pnp-T1-qqw" firstAttribute="leading" secondItem="wKK-Qx-Ael" secondAttribute="leading" constant="1" id="Gjr-Ht-wDd"/>
                                                         <constraint firstAttribute="trailing" secondItem="pnp-T1-qqw" secondAttribute="trailing" id="igP-QA-PUA"/>
-                                                        <constraint firstAttribute="bottom" secondItem="pnp-T1-qqw" secondAttribute="bottom" constant="10" id="jxh-KL-Ze2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="pnp-T1-qqw" secondAttribute="bottom" constant="5" id="jxh-KL-Ze2"/>
                                                         <constraint firstItem="pnp-T1-qqw" firstAttribute="top" secondItem="egh-Te-8Jr" secondAttribute="bottom" id="n6l-gH-gqQ"/>
                                                         <constraint firstItem="egh-Te-8Jr" firstAttribute="leading" secondItem="wKK-Qx-Ael" secondAttribute="leading" id="omq-ac-uLV"/>
                                                         <constraint firstAttribute="trailing" secondItem="kaS-N6-4Hv" secondAttribute="trailing" id="qQN-gU-mLR"/>
@@ -286,12 +286,12 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Tiv-ey-Vrz" secondAttribute="bottom" constant="10" id="BAq-gA-9cN"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Tiv-ey-Vrz" secondAttribute="bottom" constant="5" id="BAq-gA-9cN"/>
                                                 <constraint firstItem="Tiv-ey-Vrz" firstAttribute="leading" secondItem="qSF-H1-G3u" secondAttribute="leadingMargin" id="CBX-xY-koZ"/>
                                                 <constraint firstItem="Tiv-ey-Vrz" firstAttribute="top" secondItem="qSF-H1-G3u" secondAttribute="topMargin" constant="5" id="Dxn-zj-QvB"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="wKK-Qx-Ael" secondAttribute="bottom" id="TSz-aI-sEa"/>
                                                 <constraint firstItem="wKK-Qx-Ael" firstAttribute="trailing" secondItem="qSF-H1-G3u" secondAttribute="trailingMargin" id="U11-lP-MGB"/>
-                                                <constraint firstItem="wKK-Qx-Ael" firstAttribute="top" secondItem="qSF-H1-G3u" secondAttribute="topMargin" constant="5" id="aBi-zZ-m3B"/>
+                                                <constraint firstItem="wKK-Qx-Ael" firstAttribute="top" secondItem="qSF-H1-G3u" secondAttribute="topMargin" constant="2" id="aBi-zZ-m3B"/>
                                                 <constraint firstItem="wKK-Qx-Ael" firstAttribute="leading" secondItem="Tiv-ey-Vrz" secondAttribute="trailing" constant="8" id="zQd-pz-XB9"/>
                                             </constraints>
                                         </tableViewCellContentView>

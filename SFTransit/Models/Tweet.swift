@@ -22,6 +22,9 @@ class Tweet: NSObject {
         user = TweetUser(dictionary: (dictionary["user"] as? NSDictionary)!)
         text = dictionary["text"] as? String
         createdAtString = dictionary["created_at"] as? String
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+        createdAt = formatter.dateFromString(createdAtString!)
         if let favorited = dictionary["favorited"] as? Bool {
             self.favorited = favorited
         }
@@ -32,6 +35,11 @@ class Tweet: NSObject {
         user = TweetUser(json: json["user"])
         text = json["text"].string
         createdAtString = json["created_at"].string
+        if let createdAtString = createdAtString {
+            var formatter = NSDateFormatter()
+            formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+            createdAt = formatter.dateFromString(createdAtString)
+        }
     }
 
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {
