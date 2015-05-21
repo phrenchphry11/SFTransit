@@ -23,11 +23,11 @@ class StationCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setStation(station: Station) {
+    func setStation(station: Station, color: String) {
         stationName.text = station.name!
         timeLabel.text = station.time
         timeLabel.font = UIFont.getLato(.Regular, fontSize: 8.0)
-        lineBar.backgroundColor = UIColor.createWithHex("#cc0000")
+        lineBar.backgroundColor = UIColor.createWithHex(color)
     }
 
 }
