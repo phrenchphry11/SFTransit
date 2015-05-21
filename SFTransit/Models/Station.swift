@@ -21,6 +21,7 @@ class Station: NSObject {
     var abbreviationFound:Bool?
     var latitudeFound:Bool?
     var longitudeFound:Bool?
+    var color: String?
     
     var location = CLLocation()
     

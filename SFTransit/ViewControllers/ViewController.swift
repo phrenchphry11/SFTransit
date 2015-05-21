@@ -230,13 +230,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var st: [Station] = []
 
         for s in sinfo {
-            st.extend(s.getStationsCrossed())
+            var stationsInRoute = s.getStationsCrossed()
+            for station in stationsInRoute {
+                station.color = s.route?.routeColor
+            }
+            st.extend(stationsInRoute)
             //looks like it includes endStation in getStationsCrossed.
             
             routesVC.assignStations(st, route: s.route! )
-           
-            
-        
         }
         
     }
