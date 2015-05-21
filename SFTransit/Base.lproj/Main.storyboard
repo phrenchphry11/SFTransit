@@ -91,7 +91,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="from" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wlb-02-lRV">
-                                        <rect key="frame" x="20" y="277" width="97" height="30"/>
+                                        <rect key="frame" x="20" y="277" width="138" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -99,16 +99,16 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="to" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Bg-bp-NVW">
-                                        <rect key="frame" x="156" y="277" width="97" height="30"/>
+                                        <rect key="frame" x="173" y="277" width="129" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="onToTouchDown:" destination="vXZ-lx-hvc" eventType="touchDown" id="hO6-98-QIg"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mFR-08-PYE">
-                                <rect key="frame" x="0.0" y="401" width="320" height="167"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -116,7 +116,6 @@
                     <connections>
                         <outlet property="arrivalStationLabel" destination="bGS-mN-jEG" id="PFw-9x-0QG"/>
                         <outlet property="arrivalTime" destination="kbZ-l3-meQ" id="iE5-Dj-ECw"/>
-                        <outlet property="departerLocationPickerView" destination="mFR-08-PYE" id="QXT-YL-vei"/>
                         <outlet property="departureStationLabel" destination="Apw-E9-jml" id="Ccr-JO-neJ"/>
                         <outlet property="departureTime" destination="r34-Uw-nES" id="kGQ-6t-xCX"/>
                         <outlet property="fareLabel" destination="uCr-j9-XyE" id="g0I-Qm-Q3q"/>
