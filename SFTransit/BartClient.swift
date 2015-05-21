@@ -53,11 +53,13 @@ class BartClient: NSObject, NSXMLParserDelegate {
     var routeNum: Bool?
     var routeAbbr: Bool?
     var routeFound: Bool? = false
+    var routeStationsFound: Bool? = false
     var currentRouteColor: String?
     var currentRouteName: String?
     var currentRouteId: String?
     var currentRouteNum: String?
     var currentRouteAbbr: String?
+    var currentRouteStations = Array<String>()
     
     var tripData: ScheduleInformation?
     var legs = Array<ScheduleInformation>()
@@ -108,9 +110,13 @@ class BartClient: NSObject, NSXMLParserDelegate {
             xmlParser.parse()
         }
         
-        var routes = BartClient.sharedInstance.getRoutes()
         
         for leg in legs {
+            
+            let rangeOfIdStr = Range(start: advance(leg.routeId!.startIndex, 6),
+                end: leg.routeId!.endIndex)
+            let idStr = leg.routeId?.substringWithRange(rangeOfIdStr)
+            var routes = BartClient.sharedInstance.getRouteScheduleStops(idStr)
             for route in routes {
                 if route.routeId == leg.routeId {
                     leg.route = route
@@ -119,6 +125,19 @@ class BartClient: NSObject, NSXMLParserDelegate {
         }
         
         return legs
+    }
+    
+    func getRouteScheduleStops(routeId: String!) -> Array<Route> {
+        
+        routes = Array<Route>()
+        
+        var url: String = BART_API_URL + "route.aspx?cmd=routeinfo&route=" + routeId + "&key=" + BART_API_KEY
+        parser = NSXMLParser(contentsOfURL: NSURL(string: url))!
+        if let xmlParser = parser {
+            xmlParser.delegate = self
+            xmlParser.parse()
+        }
+        return routes
     }
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
@@ -174,7 +193,7 @@ class BartClient: NSObject, NSXMLParserDelegate {
         }
         
         // Route-related attributes 
-        if elementName == "routes" || elementName == "route" || elementName == "name" || elementName == "abbr" || elementName == "routeID" || elementName == "number" || elementName == "color" {
+        if elementName == "routes" || elementName == "route" || elementName == "name" || elementName == "abbr" || elementName == "routeID" || elementName == "number" || elementName == "color" || elementName == "config" {
             
             //Establish the parsing in process
             if elementName == "routes" {
@@ -196,6 +215,8 @@ class BartClient: NSObject, NSXMLParserDelegate {
             self.routeNum = (elementName == "number")
             
             self.routeAbbr = (elementName == "abbr")
+            
+            self.routeStationsFound = (elementName == "config")
             
         }
   
@@ -236,20 +257,23 @@ class BartClient: NSObject, NSXMLParserDelegate {
             }
         }
         
-        if elementName == "routes" || elementName == "route" || elementName == "name" || elementName == "abbr" || elementName == "routeID" || elementName == "number" || elementName == "color" {
+        if elementName == "routes" || elementName == "route" || elementName == "name" || elementName == "abbr" || elementName == "routeID" || elementName == "number" || elementName == "color" || elementName == "config" {
             
             //ended for parsing routes
  
             if elementName=="route" && parsingRoutes {
-                    passObject = false
-                    //create new station and populate it
-                    var route: Route = Route(routeColor: currentRouteColor, routeName: currentRouteName, routeId: currentRouteId, routeNum: currentRouteNum, routeAbbr: currentRouteAbbr)
-                    routes.append(route)
+                passObject = false
+                //create new station and populate it
+                
+                var route: Route = Route(routeColor: currentRouteColor, routeName: currentRouteName, routeId: currentRouteId, routeNum: currentRouteNum, routeAbbr: currentRouteAbbr, routeStations: currentRouteStations)
+                routes.append(route)
+                currentRouteStations = []
+                
             }
                 
             passData = false
             //Parsing stations ended
-            if(elementName=="routes"){
+            if(elementName == "routes"){
                 parsingRoutes=false
             }
                 
@@ -296,6 +320,7 @@ class BartClient: NSObject, NSXMLParserDelegate {
                 if let routeColorFound = self.routeColor {
                     if routeColorFound {
                         currentRouteColor = string
+                        self.routeColor = false
                     }
                 }
                 
@@ -320,6 +345,12 @@ class BartClient: NSObject, NSXMLParserDelegate {
                 if let routeAbbrFound = self.routeAbbr {
                     if routeAbbrFound {
                         currentRouteAbbr = string
+                    }
+                }
+                
+                if let routeStationsFound = self.routeStationsFound {
+                    if routeStationsFound {
+                        currentRouteStations.append(string!)
                     }
                 }
             }

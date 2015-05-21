@@ -96,7 +96,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         departureTime.text = scheduleInfo.first?.origTimeMin
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer
-
+        
+        for si in scheduleInfo {
+            for s in si.getStationsCrossed() {
+                println(s.name)
+            }
+        }
     }
 
     func initLocationManager() {
@@ -131,24 +136,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func getNearestBartStation(curLocation: CLLocation) -> (Station?, Int) {
         var closestLocation: Station?
-        var closestLocationDistance: CLLocationDistance = -1
+        var closestLocationDistance: CLLocationDistance = Double.infinity
         var index = 0
         var closestIndex = 0
-        for location in self.allStations {
+        for stationLocation in self.allStations {
             if closestLocation != nil {
                 var closestLocationObj = closestLocation!.location
-                var currentDistance = curLocation.distanceFromLocation(closestLocationObj)
+                println(stationLocation.name)
+                println(stationLocation.location)
+                var currentDistance = curLocation.distanceFromLocation(stationLocation.location)
                 if currentDistance < closestLocationDistance {
-                    closestLocation = location
+                    closestLocation = stationLocation
                     closestLocationDistance = currentDistance
                     closestIndex = index
                 }
             } else {
-                closestLocation = location
+                closestLocation = stationLocation
             }
             index += 1
         }
-        
         return (closestLocation!, closestIndex)
     }
     
