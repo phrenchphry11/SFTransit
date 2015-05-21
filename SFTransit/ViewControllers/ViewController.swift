@@ -117,6 +117,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         arrivalTime.text = scheduleInfo.last?.legDestTimeMin
         transferLabel.text = transfer
         
+        
     }
 
     func initLocationManager() {
@@ -168,6 +169,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
             index += 1
         }
+        locationManager.stopUpdatingLocation()
+
         return (closestLocation!, closestIndex)
     }
     
