@@ -221,14 +221,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var sinfo = BartClient.sharedInstance.getScheduleInfo(self.starterStation?.abbreviation, dest: self.endStation?.abbreviation)
         self.starterStation?.time = self.departureTime.text
         self.endStation?.time = self.arrivalTime.text
-        for s in sinfo{
-            var st = [self.starterStation!]
+        var st: [Station] = []
+
+        for s in sinfo {
             st.extend(s.getStationsCrossed())
             //looks like it includes endStation in getStationsCrossed.
-            routesVC.assignStations(st)
         
         }
-        
+        routesVC.assignStations(st)
+
         //routesVC.stations = self.getAllStationNames()
         
     }
