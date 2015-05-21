@@ -31,6 +31,7 @@ class BartClient: NSObject, NSXMLParserDelegate {
     var passObject: Bool = false
     var parsingStations: Bool = false
     var parsingSchedules: Bool = false
+    var parsingRoutes: Bool = false
     var parsingETD: Bool = false
     
     var origin: String?
@@ -43,6 +44,21 @@ class BartClient: NSObject, NSXMLParserDelegate {
     var legTransfercode: String?
     var legDestTimeMin: String?
     var legDestTimeDate: String?
+    var bartLine: String?
+    
+    var routes = Array<Route>()
+    var routeColor: Bool?
+    var routeName: Bool?
+    var routeId: Bool?
+    var routeNum: Bool?
+    var routeAbbr: Bool?
+    var routeFound: Bool? = false
+    var currentRouteColor: String?
+    var currentRouteName: String?
+    var currentRouteId: String?
+    var currentRouteNum: String?
+    var currentRouteAbbr: String?
+    
     var tripData: ScheduleInformation?
     var legs = Array<ScheduleInformation>()
     
@@ -64,6 +80,18 @@ class BartClient: NSObject, NSXMLParserDelegate {
         
     }
     
+    func getRoutes() -> Array<Route> {
+        var url: String = BART_API_URL + "route.aspx?cmd=routes&key=" + BART_API_KEY
+        
+        parser = NSXMLParser(contentsOfURL: NSURL(string: url))!
+        
+        if let xmlParser = parser {
+            xmlParser.delegate = self
+            xmlParser.parse()
+        }
+        return routes
+    }
+    
     func getScheduleInfo(origin: String!, dest: String!) -> Array<ScheduleInformation> {
         
         //Empty legs
@@ -73,20 +101,27 @@ class BartClient: NSObject, NSXMLParserDelegate {
         self.dest = dest
         
         var url: String = BART_API_URL + "sched.aspx?cmd=depart&orig=" + origin + "&dest=" + dest + "&date=now&key=" + BART_API_KEY + "&b=0&a=1"
-        println(url)
         parser = NSXMLParser(contentsOfURL: NSURL(string: url))!
         
-        println(parser)
         if let xmlParser = parser {
             xmlParser.delegate = self
             xmlParser.parse()
+        }
+        
+        var routes = BartClient.sharedInstance.getRoutes()
+        
+        for leg in legs {
+            for route in routes {
+                if route.routeId == leg.routeId {
+                    leg.route = route
+                }
+            }
         }
         
         return legs
     }
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
-        
         currentElement = elementName
         
         // Stations-related attributes
@@ -134,9 +169,37 @@ class BartClient: NSObject, NSXMLParserDelegate {
                 legDestTimeMin = attributeDict["destTimeMin"] as! String?
                 legDestTimeDate = attributeDict["destTimeDate"] as! String?
                 origin = attributeDict["origin"] as! String
+                bartLine = attributeDict["line"] as! String
             }
         }
-    
+        
+        // Route-related attributes 
+        if elementName == "routes" || elementName == "route" || elementName == "name" || elementName == "abbr" || elementName == "routeID" || elementName == "number" || elementName == "color" {
+            
+            //Establish the parsing in process
+            if elementName == "routes" {
+                parsingRoutes = true
+            }
+            
+            if elementName == "route" && parsingRoutes {
+                passObject = true
+            }
+            
+            passData = true
+            
+            self.routeColor = (elementName == "color")
+            
+            self.routeName = (elementName == "name")
+            
+            self.routeId = (elementName == "routeID")
+            
+            self.routeNum = (elementName == "number")
+            
+            self.routeAbbr = (elementName == "abbr")
+            
+        }
+  
+        
     }
 
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
@@ -163,7 +226,7 @@ class BartClient: NSObject, NSXMLParserDelegate {
             if(elementName == "leg" && parsingSchedules){
                 passObject = false
                 //create new leg and populate it
-                var leg:ScheduleInformation = ScheduleInformation(legTrainHeadStation: legTrainHeadStation, legDestination: legDestination, legTransfercode: legTransfercode, legDestTimeMin: legDestTimeMin, legDestTimeDate: legDestTimeDate, origTimeMin: origTimeMin, fare: fare, origin: origin)
+                var leg:ScheduleInformation = ScheduleInformation(legTrainHeadStation: legTrainHeadStation, legDestination: legDestination, legTransfercode: legTransfercode, legDestTimeMin: legDestTimeMin, legDestTimeDate: legDestTimeDate, origTimeMin: origTimeMin, fare: fare, origin: origin, route: bartLine)
                 // add that leg to the legs array
                 legs.append(leg)
             }
@@ -171,6 +234,25 @@ class BartClient: NSObject, NSXMLParserDelegate {
             if(elementName == "schedule"){
                 parsingSchedules = false
             }
+        }
+        
+        if elementName == "routes" || elementName == "route" || elementName == "name" || elementName == "abbr" || elementName == "routeID" || elementName == "number" || elementName == "color" {
+            
+            //ended for parsing routes
+ 
+            if elementName=="route" && parsingRoutes {
+                    passObject = false
+                    //create new station and populate it
+                    var route: Route = Route(routeColor: currentRouteColor, routeName: currentRouteName, routeId: currentRouteId, routeNum: currentRouteNum, routeAbbr: currentRouteAbbr)
+                    routes.append(route)
+            }
+                
+            passData = false
+            //Parsing stations ended
+            if(elementName=="routes"){
+                parsingRoutes=false
+            }
+                
         }
         
     }
@@ -205,6 +287,39 @@ class BartClient: NSObject, NSXMLParserDelegate {
                 if let longitudeFound = self.stationLongitude {
                     if longitudeFound {
                         currentLongitudeName = string
+                    }
+                }
+            }
+            
+            if parsingRoutes {
+                
+                if let routeColorFound = self.routeColor {
+                    if routeColorFound {
+                        currentRouteColor = string
+                    }
+                }
+                
+                if let routeNameFound = self.routeName {
+                    if routeNameFound {
+                        currentRouteName = string
+                    }
+                }
+                
+                if let routeIdFound = self.routeId {
+                    if routeIdFound {
+                        currentRouteId = string
+                    }
+                }
+                
+                if let routeNumFound = self.routeNum {
+                    if routeNumFound {
+                        currentRouteNum = string
+                    }
+                }
+                
+                if let routeAbbrFound = self.routeAbbr {
+                    if routeAbbrFound {
+                        currentRouteAbbr = string
                     }
                 }
             }

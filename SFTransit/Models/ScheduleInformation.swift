@@ -33,6 +33,10 @@ class ScheduleInformation: NSObject {
     
     var origin: String?
     
+    var routeId: String? // the Line/Route which has a list of stations and a color associated
+    
+    var route: Route?
+    
     init(legTrainHeadStation: String?, legDestination: String?, legTransfercode: String?){
         
         self.legTrainHeadStation = legTrainHeadStation
@@ -40,7 +44,7 @@ class ScheduleInformation: NSObject {
         self.legTransfercode = legTransfercode
     }
     
-    init(legTrainHeadStation: String?, legDestination: String?, legTransfercode: String?, legDestTimeMin: String?, legDestTimeDate: String?, origTimeMin: String?, fare: String?, origin: String?){
+    init(legTrainHeadStation: String?, legDestination: String?, legTransfercode: String?, legDestTimeMin: String?, legDestTimeDate: String?, origTimeMin: String?, fare: String?, origin: String?, route: String?){
         
         //Default values trip can't be shorter than 2 minutes
         self.legMaxTrip = 120
@@ -53,6 +57,7 @@ class ScheduleInformation: NSObject {
         self.origTimeMin = origTimeMin
         self.fare = fare
         self.origin = origin
+        self.routeId = route
         
         //Set date and time formats
         let dateFormatter = NSDateFormatter()
@@ -69,5 +74,5 @@ class ScheduleInformation: NSObject {
         self.legMaxTrip = Int(maxTripTime)
         
     }
-    
+        
 }

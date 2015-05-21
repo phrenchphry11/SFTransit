@@ -25,6 +25,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     var endStation: Station?
     var fare: String = "0.00"
     var transfer: String = ""
+    var routes: [Route] = []
     
     @IBOutlet weak var transferLabel: UILabel!
     
@@ -67,6 +68,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         transferLabel.text = transfer
 
         fromText.delegate = self
+        self.routes = BartClient.sharedInstance.getRoutes()
+
     }
 
     override func didReceiveMemoryWarning() {
