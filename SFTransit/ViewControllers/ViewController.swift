@@ -24,6 +24,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
     var endStation: Station?
     var fare: String = "0.00"
     var transfer: String = ""
+    var routes: [Route] = []
     
     @IBOutlet weak var transferLabel: UILabel!
     
@@ -60,6 +61,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewD
         departureStationLabel.text = starterStation?.name
         arrivalStationLabel.text = endStation?.name
         transferLabel.text = transfer
+        
+        
+        
+        self.routes = BartClient.sharedInstance.getRoutes()
+
         
     }
 
