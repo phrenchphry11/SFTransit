@@ -27,17 +27,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var transfer: String = ""
     var routes: [Route] = []
     
+  
     @IBOutlet weak var transferLabel: UILabel!
 
-    @IBOutlet weak var nearestStationLabel: UILabel!
+    //@IBOutlet weak var nearestStationLabel: UILabel!
     
     @IBOutlet weak var fareLabel: UILabel!
     
-    @IBOutlet weak var departureStationLabel: UILabel!
+   // @IBOutlet weak var departureStationLabel: UILabel!
     
     @IBOutlet weak var departureTime: UILabel!
     
-    @IBOutlet weak var arrivalStationLabel: UILabel!
+    //@IBOutlet weak var arrivalStationLabel: UILabel!
     
     @IBOutlet weak var arrivalTime: UILabel!
     
@@ -48,11 +49,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.allStations = BartClient.sharedInstance.getStations()
-        self.initLocationManager()
+        //self.initLocationManager()
 
         fareLabel.text = "$\(fare)"
-        departureStationLabel.text = starterStation?.name
-        arrivalStationLabel.text = endStation?.name
+        //departureStationLabel.text = starterStation?.name
+      //  arrivalStationLabel.text = endStation?.name
         transferLabel.text = transfer
 
         fromText.delegate = self
@@ -83,14 +84,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
 
         if let fare = scheduleInfo.first?.fare {
+            fareLabel.font = UIFont.getLato(.Regular, fontSize: 2.0)
             fareLabel.text = "$\(scheduleInfo.first!.fare!)"
+            
         } else {
             fareLabel.text = "$0.00"
         }
 
         if let starterStation = starterStation, endStation = endStation {
-            departureStationLabel.text = starterStation.name
-            arrivalStationLabel.text = endStation.name
+          //  departureStationLabel.text = starterStation.name
+          //  arrivalStationLabel.text = endStation.name
         }
 
         departureTime.text = scheduleInfo.first?.origTimeMin
@@ -131,7 +134,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
         (self.nearestStation, closestIndex) = getNearestBartStation(manager.location)
         var stationName = self.nearestStation!.name
-        self.nearestStationLabel.text = stationName
+        self.fromText.text = stationName
     }
     
     func getNearestBartStation(curLocation: CLLocation) -> (Station?, Int) {
@@ -199,6 +202,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     destinationIndex: self.getStationIndexByName(self.toText.text))
             })
         }
+    }
+    @IBAction func onLocationImgTap(sender: AnyObject) {
+        self.initLocationManager()
+        println("button tapped")
     }
 }
 
